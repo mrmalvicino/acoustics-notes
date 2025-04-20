@@ -8,7 +8,7 @@ Resumen de contenidos de la materia Acústica 1 de Ingeniería de Sonido en la U
 ## Descargar PDF
 
 &nbsp;
-Cada vez que se realiza un cambio, una nueva versión del documento es compilada y publicada en [Releases](https://github.com/mrmalvicino/acoustics-notes/releases) y puede ser descargada libremente.
+Cada vez que se realiza un cambio, una nueva versión del documento es compilada y publicada en [Releases](https://github.com/mrmalvicino/acoustics-notes/releases) automáticamente.
 
 ## Licencia y contribuciones
 
