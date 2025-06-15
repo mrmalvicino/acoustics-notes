@@ -1,0 +1,508 @@
+\chapter{Vibraciones}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Vibración}
+    \cusTe{Una vibración es el movimiento de una partícula al rededor de un punto de equilibrio.}
+\end{mdframed}
+
+En varias ocasiones, el comportamiento de las vibraciones se estudia a partir de oscilaciones en función del tiempo, independientemente de la propagación del disturbio en el espacio que se pueda llegar a generar.
+Ahora bien, a menos que se estudie el movimiento armónico de una partícula aislada en el vacío, toda vibración se da en un medio continuo y por tanto va a devenir en sonido, ya que se va a propagar en el espacio por estar en interacción con su entorno.
+
+En la jerga, se suelen asociar las vibraciones a oscilaciones de baja frecuencia dadas en un medio sólido.
+Pero estrictamente sería correcto decir, por ejemplo, que una partícula de aire está vibrando al ser perturbada por un sonido.
+Ergo, las vibraciones son sonido y viceversa.
+La única diferencia es el enfoque de estudio que se le dé al fenómeno.
+
+Si bien resulta curioso que ciertos profesores no conozcan este tecnicismo, doy fe que los lectores de este texto sabrán apreciarlo.
+
+\section{Resortes equivalentes}
+
+Las vibraciones son estudiadas mediante sistemas masa-resorte.
+Por más que un sistema esté compuesto por varios resortes reales, se lo puede reducir a un sistema más simple compuesto por un único resorte ideal equivalente.
+
+Los resortes en un sistema mecánico se comportan de manera similar a como se comportarían los capacitores en un sistema eléctrico, ya que almacenan energía potencial.
+
+En el esquema siguiente se muestran dos sistemas compuestos por una masa colgando de dos resortes con un extremo fijo en el techo.
+Los resortes en el sistema de la izquierda están dispuestos en paralelo y los del sistema de la derecha en serie.
+
+\begin{center}
+    \def\svgwidth{0.8\linewidth}
+    \input{./images/k-serie-paralelo.pdf_tex}
+\end{center}
+
+Se supone como hipótesis que el peso de la masa está perfectamente equilibrado y que esta solo tiene un grado de libertad para desplazarse.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Constante de rigidez equivalente}
+    \cusTe{Resortes en paralelo:}
+    \begin{equation*}
+        k = \sum_{\ith=1}^\nth k_\ith
+    \end{equation*}
+    Resortes en serie:
+    \begin{equation*}
+        k = \frac{1}{\sum\limits_{\ith=1}^\nth \frac{1}{k_\ith}}
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Deflexión estática}
+
+La deflexión estática es el estiramiento de un resorte que tiene en un extremo una masa adosada debido al peso de la misma por encontrarse el sistema dispuesto de manera vertical.
+Para un sistema con origen en la longitud natural del resorte, la deflexión estática corresponde a su punto de equilibrio de manera que toda oscilación que eventualmente se produzca va a darse en torno a este.
+
+
+\subsection*{Deflexión estática en resortes de expansión}
+
+En el esquema a continuación se muestran tres instancias en las que se tiene un resorte de expansión de longitud natural $l_0$ con un extremo fijo.
+El otro extremo está libre y eventualmente puede moverse.
+
+\begin{center}
+    \def\svgwidth{0.8\linewidth}
+    \input{./images/deflec-estat-techo.pdf_tex}
+\end{center}
+
+En principio, el resorte está descargado.
+Está en reposo, y la posición del extremo libre coincide con la longitud natural.
+Al no tener peso, la deflexión estática es nula.
+Luego se lo carga con una masa $m_0$, estirándose hasta que se detiene y permanece en equilibrio.
+Debido al peso de esta masa, se produce una deflexión estática $\Delta x_0=x_0-l_0$.
+Finalmente, se agrega una masa $\delta m_1$ y el resorte queda cargado con una masa $m_1=m_0+\delta m_1$ que hace que se estire aún más y genere una deflexión estática $\Delta x_1=x_1-l_0$ mayor a la anterior.
+
+Este proceso podría repetirse iteradamente aumentando el valor de la masa, obteniendo así una deflexión estática cada vez mayor.
+Al agregar un incremento de masa conocida ($\delta m_\ith$), la masa total ($m_\ith$) está dada por la masa del sistema más el agregado.
+De manera general, decimos que para cierta masa $m_\ith=m_0+\delta m_\ith$ el resorte presenta una deflexión estática $\Delta x_\ith=x_\ith-l_0$ que se calcula por leyes de Newton como sigue.
+\begin{gather*}
+    \sum F = 0 = m_\ith \, g - k \, \Delta x_\ith
+    \\
+    \frac{\Delta x_\ith}{m_\ith} = \frac{g}{k}
+\end{gather*}
+
+Esta relación es útil para calcular la deflexión estática de un sistema cuya masa ($m_0$) es desconocida.
+
+Aplicándola para la masa propia del sistema $m_0$ y luego para cierta masa $m_1=m_0 + \delta m_1$ podemos reescribir las deflexiones correspondientes de la siguiente manera.
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        \frac{g}{k} &= \frac{\Delta x_0}{m_0}
+        \\
+        \frac{g}{k} &= \frac{\Delta x_1}{m_1} = \frac{\Delta x_0 + x_1 - x_0}{m_0 + \delta m_1}
+    \end{aligned}
+    \right.
+\end{equation*}
+
+O bien de manera general:
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        \frac{g}{k} &= \frac{\Delta x_0}{m_0}
+        \\
+        \frac{g}{k} &= \frac{\Delta x_0 + (x_\ith - x_0)}{m_0 + \delta m_\ith}
+    \end{aligned}
+    \right.
+\end{equation*}
+
+Se despeja de la segunda ecuación del sistema:
+\begin{align*}
+    \frac{g}{k} \left( m_0 + \delta m_\ith \right) &= \Delta x_0 + (x_\ith - x_0)
+    \\
+    \underbrace{\frac{g}{k} \, m_0}_{\Delta x_0} + \frac{g}{k} \, \delta m_\ith &= \Delta x_0 + (x_\ith - x_0)
+\end{align*}
+
+Y restando $\Delta x_0$ de ambos miembros se llega a la conclusión de que la deflexión estática es independiente de la longitud natural.
+\begin{equation*}
+    \frac{g}{k} = \frac{x_\ith-x_0}{\delta m_\ith} = \frac{\Delta x_\ith}{m_\ith}
+\end{equation*}
+
+
+\subsection*{Deflexión estática en resortes de compresión}
+
+Una situación análoga puede analizarse para un resorte de compresión, obteniendo el mismo resultado con signo contrario por no definir la fuerza elástica por convención.
+
+\begin{center}
+    \def\svgwidth{0.8\linewidth}
+    \input{./images/deflec-estat-piso.pdf_tex}
+\end{center}
+
+Una masa $m_\ith = m_0+\delta m_\ith$ se corresponde con una deflexión estática $\Delta x_\ith = l_0 - x_\ith$ según:
+\begin{gather*}
+    \sum F = 0 = -m_\ith \, g + k \, \Delta x_\ith
+    \\
+    \frac{\Delta x_\ith}{m_\ith} = \frac{g}{k}
+\end{gather*}
+
+Particularmente, para la masa propia del sistema $m_0$ se tiene:
+\begin{equation*}
+    \Delta x_0 = \frac{m_0 \, g}{k}
+\end{equation*}
+
+Y de manera general, habiendo incrementado la masa, se tiene:
+\begin{equation*}
+    \frac{g}{k} = \frac{\Delta x_\ith}{m_\ith} = \frac{\Delta x_0 + (x_0-x_\ith)}{m_0 + \delta m_\ith}
+\end{equation*}
+
+Reemplazando $\Delta x_0$ en la ecuación anterior y despejando queda:
+\begin{equation*}
+    \frac{g}{k} = \frac{x_0 - x_\ith}{\delta m_\ith} = \frac{\Delta x_\ith}{m_\ith}
+\end{equation*}
+
+
+\section{Oscilación amortiguada}
+
+Se tiene un sistema masa-resorte en un medio viscoso y se pretende estudiar el coeficiente de amortiguamiento ($R_a$) del sistema modelándolo como un movimiento armónico amortiguado.
+
+La ecuación diferencial que rige el movimiento sale de hacer la sumatoria de fuerzas sobre la masa según las leyes de Newton:
+\begin{align*}
+    \sum F = m \, a &= -\sub{F}{ela} - \sub{F}{roz}
+    \\
+    m \, \ddot{x} &= -k \, x - R_a \, \dot{x}
+    \\
+    \ddot{x} + 2 \, \xi \, \omega_0 \, \dot{x} + \omega_0^2 \, x &= 0
+\end{align*}
+
+Donde $\omega_0=\sqrt{\frac{k}{m}}$ es la frecuencia angular natural y $\xi=\frac{R_a}{2 \, m \, \omega_0}$ es el índice de amortiguación.
+
+La familia de soluciones generales es la siguiente. \cite{1} (Pág.~85)
+
+\begin{equation}
+    x(t)=A\,e^{-\tfrac{R_a}{2m}t} \, \cos (\omega_d\,t+\varphi)
+    \label{eqn:MAA}
+\end{equation}
+
+Donde $\omega_d=\sqrt{\omega_0^2 - \left(\tfrac{R_a}{2m}\right)^2 }$ es la pseudo pulsación del sistema.
+
+Resulta evidente que el valor de la constante de amortiguamiento ($R_a$) va a determinar la envolvente exponencial que modela la atenuación en la forma de onda de la oscilación.
+Si el sistema tiene mayor amortiguamiento, más abrupto va a ser el decaimiento de la oscilación.
+Por este motivo, es importante analizar la relación entre máximos o mínimos sucesivos.
+
+Una característica de las funciones exponenciales es que si tomamos intervalos de tiempo constantes observamos un decaimiento proporcional al valor que toma la función en el intervalo anterior.
+El factor de proporción es constante.
+Lo notamos como $\lambda$ y determina qué porcentaje de amplitud tiene la oscilación al cabo de $n$ ciclos siguientes.
+Se calcula mediante:
+\begin{equation*}
+    \dfrac{x(t_0+nT)}{x(t_0)}=\lambda^n
+\end{equation*}
+
+Por otro lado, podemos plantear por definición (Ec. \ref{eqn:MAA}) la relación de amplitud entre dos máximos separados por $n$ ciclos:
+\begin{equation*}
+    \dfrac{x(t_0+nT)}{x(t_0)} = \dfrac
+    {A\,e^{-\tfrac{R_a}{2m}(t_0+nT)} \, \sin \left[\omega_d (t_0+nT)+\varphi \right]}
+    {A\,e^{-\tfrac{R_a}{2m} t_0} \, \sin \left(\omega_d t_0+\varphi \right)}
+\end{equation*}
+
+La amplitud \emph{máxima} ($A$) se simplifica para ambos puntos.
+Las funciones periódicas valen lo mismo evaluadas en un punto que evaluadas en un punto más $n$ períodos, por lo que se simplifican.
+Restando los exponentes de las exponenciales, queda:
+\begin{equation*}
+    \dfrac{x(t_0+nT)}{x(t_0)} = e^{-\tfrac{R_a}{2m} n T}
+\end{equation*}
+
+Se iguala la relación anterior dada por definición, con la relación dada por anlálisis de máximos:
+\begin{align*}
+    e^{-\tfrac{R_a}{2m} nT} &= \lambda^n
+    \\
+    -\dfrac{R_a}{2m} \, n \, T &= \ln (\lambda^n)
+\end{align*}
+
+Observar que el período denotado anteriormente como $T$ de manera general para cualquier función exponencial, es aquel asociado a la pseudo pulsación $\omega_d$ para el decaimiento de la amplitud:
+\begin{equation*}
+    T = T_d \approx T_0
+\end{equation*}
+
+El coeficiente de amortiguamiento ($R_a$) puede ser calculado mediante dos métodos.
+
+Por un lado, se puede despejar $R_a$ mediante la aproximación:
+\begin{equation*}
+    \omega_d \approx \omega_0 \implies T_d \approx T_0
+\end{equation*}
+
+Sabiendo que la pseudo pulsación $\omega_d$ de la oscilación es apenas menor que la pulsación natural $\omega_0$ que tendría el sistema si no fuese amortiguado.
+\begin{align*}
+    -\dfrac{R_a \, n}{2m} \cdot \dfrac{2 \pi}{\omega_0} &\approx \ln (\lambda^n)
+    \\
+    R_a &\approx -\dfrac{m \, \omega_0 \ln (\lambda)}{\pi}
+\end{align*}
+
+Por otro lado, definiendo el pseudo período:
+\begin{equation*}
+    T_d=\frac{2\pi}{\omega_d}
+\end{equation*}
+
+Donde:
+\begin{equation*}
+    \omega_d=\sqrt{\omega_0^2-\left(\frac{R_a}{2m}\right)^2}
+\end{equation*}
+
+Y luego despejando:
+\begin{align*}
+    -\dfrac{R_a}{2m} \, n \, \dfrac{2 \pi}{\sqrt{\omega_0^2-\left(\frac{R_a}{2m}\right)^2}} &= \ln (\lambda^n)
+    \\
+    \left( \frac{2 \pi \, n \, R_a}{2m} \right)^2 \frac{1}{\omega_0^2-\left(\frac{R_a}{2m}\right)^2} &= \ln^2 (\lambda^n)
+    \\
+    \left( \frac{\pi \, n \, R_a}{m} \right)^2 &= \Big[ n \ln(\lambda) \Big]^2 \left[ \omega_0^2 - \left( \frac{R_a}{2m} \right)^2 \right]
+    \\
+    \left( \frac{\pi \, R_a}{m} \right)^2 &= \omega_0^2 \, \ln^2 (\lambda) - \left( \frac{R_a}{2m} \right)^2 \ln^2 (\lambda)
+    \\
+    \left[ \frac{\ln (\lambda) \, R_a}{2m} \right]^2 + \left( \frac{\pi \, R_a}{m} \right)^2 &= \Big[ \omega_0 \, \ln (\lambda) \Big]^2
+    \\
+    \left[ \frac{\ln (\lambda) \, R_a}{2} \right]^2 + (\pi \, R_a)^2 &= \Big[ m \, \omega_0 \, \ln (\lambda) \Big]^2
+    \\
+    R_a^2 &= \frac{\Big[ m \, \omega_0 \, \ln (\lambda) \Big]^2}{\dfrac{\ln^2(\lambda)}{4}+\pi^2}
+    \\
+    R_a &= \frac{m \, \omega_0 \norm{\ln (\lambda)}}{\sqrt{\dfrac{\ln^2(\lambda)}{4}+\pi^2}}
+\end{align*}
+
+
+\section{Oscilación forzada}
+\label{sec:oscilacionForzada}
+
+El movimiento de un sistema masa-resorte al que se le aplica una fuerza periódica se modela como un movimiento armónico amortiguado forzado.
+En la figura a continuación se puede ver un esquema del sistema, en el que se tiene una masa unida al extremo de un resorte ideal con el otro extremo fijo.
+
+\begin{center}
+    \def\svgwidth{0.5\linewidth}
+    \input{./images/osc-maaf-diag.pdf_tex}
+\end{center}
+
+Haciendo la sumatoria de fuerzas sobre la masa según las leyes de Newton, se obtiene la ecuación diferencial que rige el movimiento de la misma.
+\begin{align*}
+    \sum F_x = m a &= \sub{F}{ext} - \sub{F}{ela} - \sub{F}{fri}
+    \\
+    m \, \ddot{x} &= \sub{F}{ext} - k \, x - R_a \, \dot{x}
+    \\
+    \ddot{x} + 2 \, \xi \, \omega_0 \, \dot{x} + \omega_0^2 \, x &= \frac{\sub{F}{ext}}{m}
+\end{align*}
+
+Donde $\omega_0=\sqrt{\frac{k}{m}}$ es la frecuencia angular natural y $\xi=\frac{R_a}{2 \, m \, \omega_0}$ es el índice de amortiguación.
+
+Cuya solución general está dada por la siguiente función del tiempo. \cite{1} (Pág.~92)
+\begin{equation*}
+    x(t) = A e^{-\tfrac{\gamma}{2}t} \cos{(\omega_d t + \varphi)} + |X| \cos (\omega t + \theta)
+\end{equation*}
+
+Donde:
+\begin{align*}
+    \norm{X} &= \frac{F_0}{m \sqrt{(\omega_0^2-\omega^2)^2+(2 \, \xi \, \omega_0 \, \omega)^2}}
+    \\
+    \theta &= \arctan \left( \frac{-\frac{R_a \, \omega}{m}}{\omega_0^2 - \omega^2} \right)
+\end{align*}
+
+O bien, sacando factor común $\omega_0$ y definiendo la relación $r = \frac{\omega}{\omega_0}$ se tiene:
+\begin{align*}
+    \norm{X} &= \frac{F_0}{k \sqrt{(1-r^2)^2+(2 \xi r)^2}}
+    \\
+    \theta &= \arctan \left( - \frac{2 \, \xi \, r}{1-r^2} \right)
+\end{align*}
+
+Pudiendo definir $D=\frac{1}{\sqrt{(1-r^2)^2+(2 \xi r)^2}}$ como la amplitud dinámica tal que $\norm{X}=\frac{F_0 \, D}{k}$.
+
+Nótese que $\theta$ es el defasaje entre la posición de la masa y la fuerza externa.
+No debe ser confundida con $\varphi$ que es la fase de la oscilación amortiguada que depende de las condiciones iniciales del sistema.
+En la siguiente figura se dan, para distintos valores de $\xi$, gráficos del defasaje $\theta(r)$ que depende de la frecuencia de la fuerza externa.
+
+\begin{center}
+    \def\svgwidth{\linewidth}
+    \input{./images/osc-maaf-fase.pdf_tex}
+\end{center}
+
+La frecuencia de la fuerza externa es positiva lo cual implica que $r>0$.
+Por lo tanto, para interpretar el gráfico de fase, solo se debe considerar la mitad derecha del mismo.
+
+
+\section{Transmisibilidad}
+
+A partir del modelo de oscilación forzada (Sec. \ref{sec:oscilacionForzada}) resulta de interés estudiar cómo se transmite la fuerza externa en el otro extremo del resorte considerando que ninguno de los extremos están fijos.
+
+Se tiene un sistema masa-resorte en un medio viscoso al que se le impone una fuerza externa de magnitud periódica en cualquiera de los extremos.
+
+\begin{center}
+    \def\svgwidth{0.8\linewidth}
+    \input{./images/vib-transmisibilidad-diag.pdf_tex}
+\end{center}
+
+Como hipótesis se supone que todos los puntos que componen la masa $m$ se mueven con un solo grado de libertad y con la misma aceleración.
+Estas condiciones se dan análogamente para los puntos de la base donde está el sistema apoyado, o el techo en caso que esté colgado.
+Ergo, todos los puntos del bloque $A1$ se modelan mediante $x(t)$ y todos los puntos del bloque $A2$ mediante $y(t)$.
+
+Se pretende determinar cómo los dos bloques $A1$ y $A2$ interactúan entre si mediante un resorte real eventualmente actuando en conjunto con un amortiguador real, que puede o no existir.
+El modelo usa un resorte ideal y un amortiguador ideal ya que, por más que no se tenga un amortiguador real, el resorte real y el rozamiento con el medio tienen un comportamiento disipativo similar al de un amortiguador.
+
+Para estudiar el efecto de amortiguación que tenga el sistema se pretende analizar cómo la fuerza, aplicada sobre uno de los bloques, influye en el movimiento del otro bloque.
+Para esto se estudia la relación entre el desplazamiento $x(t)$ e $y(t)$ de los bloques conocida como \emph{transmisibilidad}.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Transmisibilidad}
+    \cusTe{Relación entre amplitud de la vibración y amplitud transmitida.}
+    \begin{equation*}
+        T_F = \frac{\norm{X}}{\norm{Y}}
+    \end{equation*}
+\end{mdframed}
+
+Se define, además, el nivel de transmisibilidad en escala logarítmica como sigue.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Nivel de transmisibilidad}
+    \cusTe{Valor de transmisibilidad en decibeles.}
+    \begin{equation*}
+        L_T=10 \log \left( T_F \right)
+    \end{equation*}
+\end{mdframed}
+
+Si uno de los extremos estuviese fijo, la compresión del resorte estaría dada solo por la posición del otro extremo.
+Pero como ambos extremos tienen posiciones variables, la compresión neta depende de la diferencia entre $x(t)$ e $y(t)$ ya que una compresión en uno de los extremos podría compensarse por una extensión en el otro extremo obteniendo un efecto nulo en la fuerza elástica.
+Para sortear esta cuestión, hay que considerar en la ecuación diferencial que rige el movimiento la diferencia de posición y velocidad entre ambos extremos.
+Dado que se quiere analizar la aceleración en $x(t)$, se considera que el otro extremo está en equilibrio cuando la fuerza externa es nula.
+
+\begin{align}
+    m\,\Ddot{x} + R_a \left( \Dot{x}-\Dot{y} \right) + k \left( x-y \right) &= 0
+    \notag
+    \\
+    \Ddot{x} + \frac{R_a}{m} \left( \Dot{x}-\Dot{y} \right) + \frac{k}{m} \left( x-y \right) &= 0
+    \notag
+    \\
+    \Ddot{x}+2\xi\,\omega_0\left(\Dot{x}-\Dot{y}\right) + \omega_0^2 \left( x-y \right) &= 0
+    \label{eqn:MAAF}
+\end{align}
+
+Donde $\omega_0=\sqrt{\frac{k}{m}}$ es la frecuencia natural del sistema y $\xi=\tfrac{R_a}{2\omega_0\,m}$ su índice de amortiguamiento.
+
+Las soluciones particulares de la ecuación \ref{eqn:MAAF} son:
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        x(t) &= \norm{X} e^{\iu (\omega \, t + \theta)}
+        \\
+        y(t) &= \norm{Y} e^{\iu \, \omega \, t}
+    \end{aligned}
+    \right.
+\end{equation*}
+
+Y sus derivadas:
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        \Dot{x}(t) &= \iu \omega \norm{X} e^{\iu (\omega \, t + \theta)}
+        \\
+        \Dot{y}(t) &= \iu \omega \norm{Y} e^{\iu \, \omega \, t}
+    \end{aligned}
+    \right.
+\end{equation*}
+
+Mientras que la segunda derivada de $x(t)$ es:
+\begin{equation*}
+    \Ddot{x}(t) = -\omega^2 \norm{X} e^{\iu (\omega \, t + \theta)}
+\end{equation*}
+
+Reemplazando las soluciones y sus derivadas en la ecuación \ref{eqn:MAAF} se tiene una ecuación que relaciona $\norm{X}$ y $\norm{Y}$ como sigue:
+\begin{multline*}
+    -\omega^2 \norm{X} e^{\iu (\omega t + \theta)} +
+    \\
+    + 2 \, \xi \, \omega_0 \left[ \iu \omega \norm{X} e^{\iu (\omega t + \theta)} - \iu \omega \norm{Y} e^{\iu \omega t} \right] +
+    \\
+    + \omega_0^2 \left[ \norm{X} e^{\iu (\omega \, t + \theta)} - \norm{Y} e^{\iu \, \omega \, t} \right] = 0
+\end{multline*}
+
+\begin{multline*}
+    -\omega^2 \norm{X} e^{\iu (\omega t + \theta)} +
+    \\
+    + 2 \, \xi \, \omega_0 \, \iu \, \omega \norm{X} e^{\iu (\omega t + \theta)} - 2 \, \xi \, \omega_0 \, \iu \, \omega \norm{Y} e^{\iu \omega t} +
+    \\
+    + \omega_0^2 \norm{X} e^{\iu (\omega \, t + \theta)} - \omega_0^2 \norm{Y} e^{\iu \, \omega \, t} = 0
+\end{multline*}
+
+\begin{multline*}
+    \norm{X} e^{\iu (\omega \, t + \theta)} \left[ -\omega^2 + 2 \, \xi \, \omega_0 \, \iu \, \omega + \omega_0^2  \right] =
+    \\
+    = \norm{Y} e^{\iu \, \omega \, t} \left[ 2 \, \xi \, \omega_0 \, \iu \, \omega + \omega_0^2 \right]
+\end{multline*}
+
+\begin{align*}
+    \frac{\norm{X}}{\norm{Y}} \, e^{\iu\theta}
+    &= \frac{\omega_0^2 + \iu \, 2 \, \xi \, \omega_0 \, \omega}{\omega_0^2 - \omega^2 + \iu \, 2 \, \xi \, \omega_0 \, \omega}
+    \\
+    &= \frac{\omega_0^2}{\omega_0^2} \cdot \frac{1+ \iu \, 2 \xi \frac{\omega}{\omega_0}}{1-\frac{\omega^2}{\omega_0^2} + \iu \, 2 \, \xi \frac{\omega}{\omega_0}}
+\end{align*}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Relación de frecuencias}
+    \cusTe{Relación entre la frecuencia de excitación y la frecuencia de resonancia.}
+    \begin{equation*}
+        r=\frac{\omega}{\omega_0}
+    \end{equation*}
+\end{mdframed}
+
+Tomando módulo en ambos miembros se tiene:
+\begin{align*}
+    \frac{\norm{X}}{\norm{Y}} \, e^{\iu\theta}
+    &= \frac{1+ \iu \, 2 \xi \, r}{1-r^2 + \iu \, 2 \, \xi \, r}
+    \\
+    \norm{\frac{\norm{X}}{\norm{Y}} \, e^{\iu\theta}}
+    &= \norm{\frac{1+ \iu \, 2 \, \xi \, r}{1-r^2 + \iu \, 2 \, \xi \, r}}
+    = \frac{\norm{1 + \iu \, 2 \, \xi \, r}}{\norm{1-r^2 + \iu \, 2 \, \xi \, r}}
+    \\
+    \frac{\norm{X}}{\norm{Y}} \, \underbrace{\norm{e^{\iu\theta}}}_1
+    &= \frac{\sqrt{1 + (2 \, \xi \, r)^2}}{\sqrt{(1-r^2)^2 + (2 \, \xi \, r)^2}}
+\end{align*}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{equation*}
+        \frac{\norm{X}}{\norm{Y}} = \sqrt{\frac{1 + (2 \, \xi \, r)^2}{(1-r^2)^2 + (2 \, \xi \, r)^2}}
+    \end{equation*}
+\end{mdframed}
+
+Observar que $\norm{X}$ e $\norm{Y}$ son los módulos de las funciones de posición $x(t)$ e $y(t)$ cuyas partes reales determinan el desplazamiento de cada extremo $A1$ y $A2$ y son soluciones particulares de la ecuación \ref{eqn:MAAF}.
+
+Al graficar el nivel de transmisibilidad, se obtiene la siguiente familia de curvas que dependen del parámetro $0<\xi<1$ que caracteriza cada sistema.
+
+\begin{center}
+    \def\svgwidth{\linewidth}
+    \input{./images/vib-transmisibilidad-nivel.pdf_tex}
+\end{center}
+
+Se puede observar en la figura anterior que para valores de $r>\sqrt{2}$ el sistema va a estar amortiguando la fuerza externa, ya que $\norm{Y}>\norm{X}$, lo cual implica que el desplazamiento en el extremo donde se aplica la fuerza es mayor al extremo sobre el otro.
+
+El sistema va a estar en resonancia cuando la frecuencia de la fuerza impuesta sea igual a la frecuencia natural.
+Cuando $r=\frac{\omega}{\omega_0}=1$ el sistema es exitado a su frecuencia de resonancia y la oscilación se amplifica.
+Pero la frecuencia de resonancia es inversamente proporcional a el índice de amortiguamiento debido a que $\xi$ depende de $\omega_0$.
+Por esto, se observa en el gráfico de $L_T(r)$ que el punto máximo es distinto para las diferentes curvas.
+
+La fuerza externa es $\sub{F}{ext}=F_0 \cos (\omega t)$ por ser su magnitud periódica.
+Existe una relación entre $\sub{F}{ext}$ y el desplazamiento $\norm{X}$ que la fuerza genera.
+\begin{align*}
+    F_0 \cos (\omega t) &= m \, \ddot{x}
+    \\
+    F_0 \iint \cos (\omega t) \, \dif t^2 &= m \iint \ddot{x} \, \dif t^2
+    \\
+    -\frac{F_0 \cos (\omega t)}{\omega^2} &= m \, x(t)
+    \\
+    -\frac{F_0 \cos (\omega t)}{\omega^2} &= m \, \norm{X} \cos (\omega t)
+\end{align*}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{equation*}
+        F_0 = m \, \norm{X} \, \omega^2
+    \end{equation*}
+\end{mdframed}
+
+Analizando la fuerza transmitida $\sub{F}{tra}=F_1 \cos(\omega t)$ y el desplazamiento $\norm{Y}$ en el otro extremo, se obtiene $F_1 = m \, \norm{Y} \, \omega^2$ para el máximo de fuerza transmitida de modo que:
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{equation*}
+        \frac{\norm{X}}{\norm{Y}}=\frac{F_0}{F_1}
+    \end{equation*}
+\end{mdframed}

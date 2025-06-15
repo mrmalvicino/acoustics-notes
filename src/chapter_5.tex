@@ -1,0 +1,495 @@
+\chapter{Transmisión del sonido}
+
+La contaminación acústica en las ciudades es producida en gran parte por motores de combustión.
+Si bien podemos encontrar motores de combustión generando ruido en vehículos de transporte o maquinaria de construcción, el análisis y tratamiento acústico es extrapolable para disminuir el ruido de sistemas de ventilación, salas de máquinas y otras fuentes sonoras.
+
+Los silenciadores son filtros acústicos que se insertan en conductos que transporten fluidos mediante máquinas, para disminuir el ruido que estas generen.
+Consisten en un ducto con diferentes geometrías y materiales que producen distintos fenómenos acústicos a la onda que se propague por el mismo.
+Se clasifican en reactivos y disipativos según su principio de funcionamiento sea mediante variaciones geométricas del conducto o mediante disipación energética por materiales porosos, respectivamente.
+
+
+\section{Medición de silenciadores}
+
+El \emph{Noise Reduction} consiste en medir la presión en la entrada del silenciador para compararla con la presión en la salida.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Noise Reduction}
+    \begin{equation*}
+        NR = 20 \log \left( \frac{\sub{p}{in}}{p_T} \right)
+    \end{equation*}
+\end{mdframed}
+
+Este método es útil en situaciones donde solamente hay ondas propagativas con $R\to 0$ tanto en la entrada como en la salida del silenciador.
+Pero esta aproximación rara vez es válida, y es probable que los puntos de medición estén dados en nodos.
+
+\begin{center}
+    \def\svgwidth{0.5\linewidth}
+    \input{./images/silenciador-nr.pdf_tex}
+\end{center}
+
+El \emph{Insertion Loss} sirve para medir la presión transmitida por un silenciador y compararla con la presión que se tenía antes de instalar el silenciador.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Insertion Loss}
+    \begin{equation*}
+        IL = 10 \log \left( \frac{W_0}{W_T} \right)
+    \end{equation*}
+\end{mdframed}
+
+La medición se hace en un punto externo al silenciador.
+Es útil para caracterizar el comportamiento de un silenciador en un recinto con condiciones particulares.
+Pero no permite sacar conclusiones generales sobre el comportamiento del silenciador en sí.
+
+\begin{center}
+    \def\svgwidth{0.5\linewidth}
+    \input{./images/silenciador-il.pdf_tex}
+\end{center}
+
+La pérdida de transmisibilidad o \emph{Transmission Loss} relacionan la potencia acústica incidente al sistema con la transmitida.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:TL}
+    \end{defn}
+    \cusTi{Transmission Loss}
+    \begin{equation*}
+        TL = 10 \log \left( \frac{\sub{W}{in}}{W_T} \right)
+        = 10 \log \left( \frac{1}{\tau} \right)
+    \end{equation*}
+\end{mdframed}
+
+De esta forma se puede evaluar la efectividad de los silenciadores independientemente del recinto y de las condiciones del mismo.
+Pero el Transmission Loss tiene varias aplicaciones.
+Además de la caracterización de silenciadores, se usa para estudiar la transmisión de ondas de sonido que se propagan por diferentes medios (Sec. \ref{sec:medium}).
+
+A continuación se tiene un esquema con los puntos de medición en la entrada y la salida de un silenciador para calcular el Transmission Loss del sistema.
+
+\begin{center}
+    \def\svgwidth{0.5\linewidth}
+    \input{./images/silenciador-tl.pdf_tex}
+\end{center}
+
+Se determinan las mediciones $\sub{p}{in}_1$ y $\sub{p}{in}_2$ en puntos de máxima y mínima presión, denominados $\sub{p}{max}$ y $\sub{p}{min}$ respectivamente.
+
+Observar que si la reflexión fuese total entonces el coeficiente de reflexión sería unitario, con lo cual la presión máxima sería $A$ y la mínima sería nula.
+Pero como parte de la onda está siendo transmitida hacia la salida, la reflexión no llega a formar una onda completamente estacionaria en la entrada.
+
+Para establecer una relación entre la presión eficaz medida y el coeficiente $R$ se hace uso de la propiedad $z \, \overline{z} = \norm{z}^2$ y luego de la propiedad $z + \overline{z} = 2\,\Re(z)$ de los números complejos.
+
+Sean la presión y su conjugado:
+\begin{align*}
+    p(x) &= A \left( e^{-\iu k x} + R \, e^{\iu k x} \right)
+    \\
+    \overline{p}(x) &= \overline{A} \left( e^{\iu k x} + \overline{R} \, e^{-\iu k x} \right)
+\end{align*}
+
+Se tiene que la presión eficaz es:
+\begin{align*}
+    \rms{p}^2 &= \frac{\norm{p(x)}^2}{2}
+    \\
+    &= \frac{p(x) \, \overline{p}(x)}{2}
+    \\
+    &= \frac{\norm{A}^2}{2} \left( e^{-\iu k x} + R \, e^{\iu k x} \right) \left( e^{\iu k x} + \overline{R} \, e^{-\iu k x} \right)
+    \\
+    &= \frac{\norm{A}^2}{2} \left( 1 + \overline{R} \, e^{-2\iu k x} + R \, e^{2\iu k x} + \norm{R}^2  \right)
+    \\
+    &= \frac{\norm{A}^2}{2} \left( 1 + \overline{R \, e^{2\iu k x}} + R \, e^{2\iu k x} + \norm{R}^2  \right)
+    \\
+    &= \frac{\norm{A}^2}{2} \left[ 1 + 2\,\Re \left( R\,e^{2\iu k x} \right) + \norm{R}^2 \right]
+    \\
+    &= \frac{\norm{A}^2}{2} \left[ 1 + 2 \, R \cos(2kx) + R^2 \right]
+\end{align*}
+
+Si $\cos(2kx)=1$ la presión es máxima:
+\begin{equation*}
+    \sub{\rms{p}^2}{max}
+    = \frac{\norm{A}^2}{2} \left( 1 + 2R + R^2 \right)
+    = \frac{\norm{A}^2}{2} \left( 1 + R \right)^2
+\end{equation*}
+
+Si $\cos(2kx)=-1$ la presión es mínima:
+\begin{equation*}
+    \sub{\rms{p}^2}{min}
+    = \frac{\norm{A}^2}{2} \left( 1 - 2R + R^2 \right)
+    = \frac{\norm{A}^2}{2} \left( 1 - R \right)^2
+\end{equation*}
+
+Pudiendo definir la relación entre las presiones máxima y mínima:
+\begin{equation*}
+    \frac{\sub{\rms{p}^2}{max}}{\sub{\rms{p}^2}{min}} = \frac{\left( 1 + R \right)^2}{\left( 1 - R \right)^2} = s
+\end{equation*}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Coeficiente de onda estacionaria}
+    \begin{equation*}
+        s=\left( \frac{1+R}{1-R} \right)^2
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Ley de masa}
+\label{sec:medium}
+
+Un cambio en la geometría del espacio en que se propague una onda de sonido puede generar un cambio de impedancia pero no es el único factor capaz de hacerlo.
+La densidad del medio influye en la propagación del sonido, ya que un cambio de medio implica un cambio de impedancia.
+Las partículas de diferentes materiales tienen una resistencia diferente a ser movidas.
+
+Si una onda se propaga por un medio gaseoso y pasa a propagarse a un medio sólido, de mayor impedancia, la velocidad de las partículas en la frontera tenderá a ser nula.
+Si pasa a propagarse a un medio de menor impedancia, la presión tenderá a serlo.
+
+La siguiente situación ilustra una situación habitual en la que se tiene dos recintos separados por una pared, una fuente radiante en un recinto y se quiere estudiar la presión transmitida al otro recinto.
+
+\begin{center}
+    \def\svgwidth{0.7\linewidth}
+    \input{./images/energia-medio.pdf_tex}
+\end{center}
+
+Observar que el origen de coordenadas $x_0$ está dado en el límite entre la pared y el recinto donde está la fuente.
+
+Se considera como hipótesis que la incidencia de la onda sonora es normal a la superficie y que la pared es homogénea.
+Notar que la presión incidente $\sub{p}{in}_2$ es la transmitida del recinto de la izquierda hacia el interior de la pared.
+
+Despejando cada potencia según la propiedad \ref{prop:p^2/Z=W/S}, el coeficiente de transmisión para la situación dada se puede escribir de la siguiente forma.
+\begin{equation*}
+    \tau = \frac{\dfrac{\norm{p_T}^2 \, S}{2\,Z_3\,Q}}{\dfrac{\norm{\sub{p}{in}}^2 \, S}{2\,Z_1\,Q}}
+    = \norm{\frac{p_T}{\sub{p}{in}}}^2 \frac{Z_1}{Z_3}
+\end{equation*}
+
+Siendo su inverso multiplicativo:
+\begin{equation}
+    \frac{1}{\tau} = \norm{\frac{\sub{p}{in}}{p_T}}^2 \frac{Z_3}{Z_1}
+    \label{eqn:mediumTau}
+\end{equation}
+
+La velocidad particular (Def. \ref{defn:particlesVelocity}) y las presiones incidente y reflejada de cada medio son:
+\begin{gather*}
+    \text{Medio 1:}
+    \left\{
+    \begin{aligned}
+        p_1(x) &= \sub{p}{in}_1 \, e^{-\iu k_1 x} + p_{R1} \, e^{\iu k_1 x}
+        \\
+        u_1(x) &= \frac{\sub{p}{in}_1 \, e^{-\iu k_1 x} - p_{R1} \, e^{\iu k_1 x}}{\rho_1 \, c_1}
+    \end{aligned}
+    \right.
+    \\
+    \text{Medio 2:}
+    \left\{
+    \begin{aligned}
+        p_2(x) &= \sub{p}{in}_2 \, e^{-\iu k_2 x} + p_{R2} \, e^{\iu k_2 x}
+        \\
+        u_2(x) &= \frac{\sub{p}{in}_2 \, e^{-\iu k_2 x} - p_{R2} \, e^{\iu k_2 x}}{\rho_2 \, c_2}
+    \end{aligned}
+    \right.
+    \\
+    \text{Medio 3:}
+    \left\{
+    \begin{aligned}
+        p_3(x) &= p_T \, e^{-\iu k_3 \left(x-L\right)}
+        \\
+        u_3(x) &= \frac{p_T \, e^{-\iu k_3 \left(x-L\right)}}{\rho_3 \, c_3}
+    \end{aligned}
+    \right.
+\end{gather*}
+
+Se plantean las siguientes hipótesis de borde:
+\begin{gather*}
+    p_1(x_0) = p_2(x_0)
+    \\
+    p_2(L) = p_3(L)
+    \\
+    S \, u_1(x_0) = S \, u_2(x_0)
+    \\
+    S \, u_2(L) = S \, u_3(L)
+\end{gather*}
+
+De manera que evaluando $x=0$ y $x=L$ en las ecuaciones del sistema y remplazándolas en el sistema de hipótesis se tiene:
+\begin{gather}
+    \sub{p}{in}_1 + p_{R1} = \sub{p}{in}_2 + p_{R2}
+    \label{eqn:medium1}
+    \\
+    \sub{p}{in}_2 \, e^{-\iu k_2 L} + p_{R2} \, e^{\iu k_2 L} = p_T
+    \label{eqn:medium2}
+    \\
+    \frac{\sub{p}{in}_1 - p_{R1}}{\rho_1 \, c_1} = \frac{\sub{p}{in}_2 - p_{R2}}{\rho_2 \, c_2}
+    \label{eqn:medium3}
+    \\
+    \frac{\sub{p}{in}_2 \, e^{-\iu k_2 L} - p_{R2} \, e^{\iu k_2 L}}{\rho_2 \, c_2} = \frac{p_T}{\rho_3 \, c_3}
+    \label{eqn:medium4}
+\end{gather}
+
+Despejando $\sub{p}{in}_2$ y $p_{R2}$ de las ecuaciones \ref{eqn:medium3}+\ref{eqn:medium4} y \ref{eqn:medium3}-\ref{eqn:medium4} respectivamente, y reemplazando en \ref{eqn:medium1}+\ref{eqn:medium2} se tiene:
+\begin{equation}
+    \scale{0.96}
+    {
+    \frac{\sub{p}{in}_1}{p_T} = \frac{1}{2} \left[ \cos(k_2 \, L) \left( 1+\frac{Z_1}{Z_3} \right) + \iu \sin(k_2 \, L) \left( \frac{Z_1}{Z_2} + \frac{Z_2}{Z_3} \right) \right]
+    }
+    \label{eqn:mediumPin/PT}
+\end{equation}
+
+Suponemos que el material de la pared es mucho más denso que el aire, que es el medio de propagación de los recintos.
+Esto implica:
+\begin{equation*}
+    Z_0 = Z_1 = Z_3 << Z_2
+\end{equation*}
+
+Suponemos que la frecuencia de la onda emitida por la fuente no es lo suficientemente alta como para que tenga una longitud de onda comparable al ancho de la pared, siendo entonces válida la siguiente aproximación:
+\begin{equation*}
+    k_2 = \frac{2\pi \, f}{c_2}
+    \implies k_2 \, L = \frac{2\pi \, f \, L}{c_2}
+    \implies k_2 \, L << 1
+\end{equation*}
+
+Considerando estas dos hipótesis en la ecuación \ref{eqn:mediumPin/PT}, el factor del primer producto es $1+Z_1/Z_3=2$, el factor del segundo es $Z_1/Z_2+Z_2/Z_3 \approx Z_2/Z_3$, y las funciones trigonométricas quedan aproximadas por $\cos(k_2\,L) \approx 1$ y $\sin(k_2\,L) \approx (k_2\,L)$.
+
+Reemplazando la ecuación \ref{eqn:mediumPin/PT} en el coeficiente de transmisión dado por la ecuación \ref{eqn:mediumTau} se obtiene la ecuación conocida como \emph{ley de masa}:
+
+\begin{align*}
+    \frac{1}{\tau} &= \norm{\frac{\sub{p}{in}}{p_T}}^2
+    \\
+    &= \norm{\frac{1}{2} \left[ 2 + \iu \, k_2 \, L \, \frac{Z_2}{Z_3} \right]}^2
+    \\
+    &= \norm{1 + \iu \, \frac{k_2 \, L}{2} \, \frac{Z_2}{Z_0}}^2
+    \\
+    &= \norm{1 + \iu \, \frac{2\pi \, f \, L}{2 \, c_2} \, \frac{\rho_2 \, c_2}{\rho_0 \, c}}^2
+    \\
+    &= \norm{1 + \iu \, \frac{\pi \, f \, L \, \rho_2}{\rho_0 \, c}}^2
+\end{align*}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Ley de masa}
+    \begin{equation*}
+        \frac{1}{\tau} = 1 + \left( \frac{\pi \, f \ \sigma}{\rho_0 \, c} \right)^2
+    \end{equation*}
+    Donde $\sigma=L\,\rho_2 \equiv \si{\kilo\gram\per\metre^2}$ es la densidad superficial o masa por unidad de superficie.
+\end{mdframed}
+
+La pérdida de transmisibilidad (Def. \ref{defn:TL}) se definió en función del inverso del coeficiente de transmisión (Def. \ref{defn:coefficients}).
+Por lo tanto, a partir de la ley de masa se tiene la siguiente expresión equivalente para el Transmission Loss de la pared.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Transmission Loss}
+    \cusTe{De una superficie constante para un cambio de impedancia dado por la variación de densidad.}
+    \begin{equation*}
+        TL = 10 \log \left[ 1 + \left( \frac{\pi \, f \ \sigma}{\rho_0 \, c} \right)^2 \right]
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Transmisión entre recintos}
+
+Se tiene un recinto con una o más fuentes de sonido, en el que se cumple la hipótesis de campo difuso.
+Se tiene otro recinto aledaño que comparte una pared de superficie $S$ con el primero.
+Según la definición \ref{defn:PWL}, el nivel de potencia del recinto emisor es:
+\begin{align*}
+    \sub{L_W}{in}
+    &= 10 \log \left( \frac{\sub{W}{in}}{\sub{W}{ref}} \right)
+    = 10 \log \left( \frac{ \sub{I}{in} \, S }{ \sub{I}{ref} \, \sub{S}{ref} } \right)
+    \\
+    &= 10 \log \left( \frac{ \frac{\sub{p}{in}^2}{4Z} \, S }{ \frac{\sub{p}{ref}^2}{Z} \, 1\,\si{\metre^2} } \right)
+    = 10 \log \left( \frac{\sub{p}{in}^2}{\sub{p}{ref}^2} \,  \frac{S}{4} \right)
+    \\
+    &= \sub{L_p}{in} + 10 \log \left( \frac{S}{4} \right)
+\end{align*}
+
+Despejando de la propiedad \ref{prop:directDiffuseFields}, el nivel de potencia en el recinto receptor es:
+\begin{equation*}
+    {L_W}_T = {L_p}_T - 10 \log \left( \frac{4}{\mathcal{R}} \right)
+\end{equation*}
+
+Luego, aplicando la definición \ref{defn:TL}, el TL queda:
+\begin{align*}
+    TL &=
+    10 \log \left( \frac{\sub{W}{in}}{W_T} \right)
+    \\
+    &= \sub{L_W}{in} - {L_W}_T
+    \\
+    &= \left[ \sub{L_p}{in} + 10 \log \left( \frac{S}{4} \right) \right] - \left[ {L_p}_T - 10 \log \left( \frac{4}{\mathcal{R}} \right) \right]
+\end{align*}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Transmision Loss}
+    \cusTe{Entre recintos con campo difuso.}
+    \begin{equation*}
+        TL = \Delta L_p + 10 \log \left( \frac{S}{\mathcal{R}} \right)
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Tipos de silenciadores}
+
+
+\subsection{Cámara de expansión}
+
+Una cámara de expansión es un silenciador que produce una atenuación mediante un cambio abrupto de sección en el conducto recorrido por la onda.
+Consiste en dos cilindros de entrada y salida unidos por otro cilindro concéntrico de mayor diámetro.
+En la figura a continuación se observa un esquema de una cámara de expansión.
+
+\begin{center}
+    \def\svgwidth{\linewidth}
+    \input{./images/silenciador-cam-exp.pdf_tex}
+\end{center}
+
+La relación entre la potencia incidente del medio 1 y la potencia transmitida en el medio 3 está dada por:
+\begin{equation*}
+    \dfrac{1}{\tau} = \left( 1+\frac{Z_1}{Z_3} \right)^2 \frac{\cos^2 (k_2 L)}{4} + \left( \frac{Z_1}{Z_2}+\frac{Z_2}{Z_3} \right)^2 \frac{\sin^2 (k_2 L)}{4}
+\end{equation*}
+
+Siendo $k_2$ el número de onda y $L$ la longitud de la cámara de expansión.
+Mientras que $Z_1$, $Z_2$ y $Z_3$ son las impedancias acústicas que en este caso dependen de la superficie del tubo.
+Es decir que hay un cambio de impedancia producto de un cambio de sección, que genera una reflexión.
+
+Considerando que $Z_1=Z_3=\rho_0 c/S_1$ y la impedancia del medio 2 es $Z_2=\rho_0 c/S_2$ el coeficiente de transmisión para la cámara de expansión queda:
+\begin{equation*}
+    \dfrac{1}{\tau} = \cos^2 (k_2 L)+ \frac{1}{4} \left( \dfrac{S_2}{S_1} + \frac{S_1}{S_2} \right)^2 \sin^2(k_2 L)
+\end{equation*}
+
+Quedando definido el transmission loss de una cámara de expansión en función de la relación entre los diámetros de los cilindros como sigue:
+\begin{equation*}
+    TL = 10 \log \left[ 1 + \frac{1}{4} \left( \frac{S_1}{S_2} - \frac{S_2}{S_1} \right)^2 \sin^2 (k \, L) \right]
+\end{equation*}
+
+Observar en la ecuación anterior que la pérdida de transmisión será máxima cuando $\sin^2(k_2 \, L)=1$ si y solo si $k_2 \, L = \tfrac{\pi}{2} \left( 2n+1 \right)$ por lo tanto las frecuencias de máxima atenuación serán:
+\begin{equation*}
+    f_0 = \frac{\left( 2n+1 \right) c}{4L}
+\end{equation*}
+
+
+\subsection{Side Branch} 
+
+Un silenciador side branch o de ramificación lateral, también conocido como silenciador de cuarto de onda, consiste en un tubo que tiene un solo extremo cerrado y está anexado al ducto por el cual se propaga la onda.
+A continuación se tiene un esquema.
+
+\begin{center}
+    \def\svgwidth{\linewidth}
+    \input{./images/silenciador-side-branch.pdf_tex}
+\end{center}
+
+Planteando las hipótesis de continuidad:
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        p_1(x_0) &= p_2(x_0) = p_3(x_0)
+        \\
+        S \, u_1 (x_0) &= S_B \, u_2 (x_0) = S \, u_3 (x_0)
+        \\
+        u_2(L) &= 0
+    \end{aligned}
+    \right.
+\end{equation*}
+
+Se obtiene el transmission loss para un side branch:
+\begin{equation*}
+    TL = 10 \log \left\{ 1 + \left[ \frac{S_B}{2S} \tan (kL) \right]^2 \right\}
+\end{equation*}
+
+De manera que:
+\begin{equation*}
+    kL = \tfrac{2n+1}{2} \, \pi \implies \tan (kL) \to \infty \implies TL\to\infty
+\end{equation*}
+
+Por lo tanto, las frecuencias para las que el side branch genera mayor atenuación son:
+\begin{equation*}
+    f_0 = \frac{\left( 2n+1 \right) c}{4L}
+\end{equation*}
+
+
+\subsection{Resonador de Helmholtz}
+
+Un volumen de aire encerrado está interconectado con un recinto mediante un pequeño conducto.
+Una onda de sonido que se propaga en el recinto impacta el orificio excitando el aire del conducto.
+
+\begin{center}
+    \def\svgwidth{0.8\linewidth}
+    \input{./images/helmholtz.pdf_tex}
+\end{center}
+
+Debido a la geometría del conducto, el aire que hay dentro se mueve como una masa acústica con presión constante a lo largo del mismo para aquellas frecuencias que verifiquen $L<<\lambda$.
+Es decir que, si bien puede haber movimiento de partículas, la masa de aire $m$ se mueve en bloque a presión atmosférica constante.
+Como el aire encerrado en el volumen $V$ sí es compresible, el sistema en conjunto se comporta de manera análoga a un sistema masa-resorte.
+
+Si bien el conducto tiene un largo $L$, parte de las partículas aledañas al conducto también se mueven junto al bloque, de manera que se considera un incremento de cada lado del tubo:
+\begin{equation*}
+    \Delta L = \underbrace{0.61 \, r}_{\text{Tubo}} + \underbrace{0.82 \, r}_{\text{Bafle}}
+\end{equation*}
+
+El comportamiento elástico se da según la compresibilidad del aire encerrado en el volumen:
+\begin{equation*}
+    \sub{k}{ela} = \frac{\rho_0 \, c^2 \, S^2}{V}
+\end{equation*}
+
+Y la masa está dada por la masa acústica del pequeño ducto:
+\begin{equation*}
+    m = \rho_0 \, S \, L
+\end{equation*}
+
+De modo que el comportamiento del sistema se puede modelar según:
+\begin{equation*}
+    m \, \ddot{x} + \sub{k}{ela} \, x = \sub{F}{ext} = p \, S
+\end{equation*}
+
+Siendo la frecuencia natural:
+\begin{equation*}
+    \omega_0 = c \sqrt{\frac{S}{LV}}
+\end{equation*}
+
+Por lo tanto, la frecuencia de resonancia es:
+\begin{equation*}
+    f_0 = \frac{c}{2\pi} \sqrt{\frac{S}{V \left( L+ \Delta L \right)}}
+\end{equation*}
+
+\begin{comment}
+\section{Método de Delany-Bazley}
+
+Consiste en un método para calcular la impedancia equivalente que tendría un tubo con material absorbente dentro.
+
+Una onda se propaga en un tubo que tiene material absorbente en uno de sus extremos, como se muestra en el siguiente esquema.
+
+\begin{center}
+    \def\svgwidth{0.8\linewidth}
+    \input{./images/delany-bazley.pdf_tex}
+\end{center}
+
+La impedancia equivalente del otro extremo está dada por:
+\begin{equation*}
+    \sub{Z}{in} = \frac{Z_s \cos(kL-kD) + Z_0 \, \iu \sin (kL-kD)}{Z_0 \cos(kL-kD) + Z_s \, \iu \sin (kL-kD)}
+\end{equation*}
+
+Si el Side Branch es cerrado:
+\begin{equation*}
+    \sub{Z}{in} = \frac{Z_0}{\iu \tan (kL)} \propto \frac{\lambda}{L}
+\end{equation*}
+
+Si el Side Branch es abierto:
+\begin{equation*}
+    \sub{Z}{in} = Z_0 \, \iu \tan (kL) \propto \frac{L}{\lambda}
+\end{equation*}
+
+Sean $\Phi$ la porosidad y $\sigma$ el trabajo del aire para pasar se tiene:
+\begin{gather*}
+    Z_e = Z_0 \left[ 1 + 0.0571 \, X^{-0.754} - \iu \, 0.087 \, X^{-0.732} \right]
+    \\
+    k_e = \frac{\omega}{c} \left[ 1 + 0.0978 \, X^{-0.7} - \iu \, 0.189 \, X^{-0.595} \right]
+\end{gather*}
+
+Donde:
+\begin{equation*}
+    X = \frac{\rho_0 \, f}{\sigma}
+\end{equation*}
+
+Quedando la impedancia dada por:
+\begin{equation*}
+    Z_s = \frac{Z_e}{\Phi \, \iu \tan (k_e \, D)}
+\end{equation*}
+\end{comment}

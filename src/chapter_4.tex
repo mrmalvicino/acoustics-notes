@@ -1,0 +1,672 @@
+\chapter{Acústica geométrica}
+
+Como contrapartida al estudio ondulatorio del sonido, se propone describir la propagación sonora como si de \emph{rayos} se tratase.
+
+Un \emph{rayo de sonido} es una trayectoria rectilínea que acompaña de manera perpendicular el frente de onda.
+La característica principal que se usa en este enfoque es la reflexión especular.
+Esto es, si un rayo impacta contra una superficie con cierto ángulo, este se va a reflejar con el mismo ángulo.
+Pero cabe destacar que los rayos de sonido no existen como tales en la naturaleza, sino que son un modelo para describir el fenómeno sonoro.
+
+Este enfoque es aplicable para frecuencias altas, para las que se puede despreciar los fenómenos de interferencia y de difracción, y a una distancia tal que el frente de onda pueda considerarse plano.
+
+
+\section{Suma de presiones}
+
+Consideremos dos o más fuentes de sonido radiando energía de forma esférica en campo libre.
+Se quiere calcular la presión resultante debida al aporte de todas las fuentes en un punto.
+Sumar presiones implica sumar las respectivas funciones que describan cómo varía la presión de cada fuente en dicho punto:
+\begin{equation*}
+    p(\Vec{x}_0,t) = \norm{p} e^{\iu(\omega t + \varphi)}
+\end{equation*}
+
+Podría tratarse de señales desfasadas:
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Fase}
+    \begin{equation*}
+        \Delta \varphi = \frac{2\pi}{\lambda} \Delta x = \frac{2\pi}{T} \Delta t
+    \end{equation*}
+\end{mdframed}
+
+Debido a este comportamiento periódico, pueden darse sumas de presiones que culminen en cancelaciones o amplificaciones.
+Se definen dos tipos de señales.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Señales correlacionadas}
+    \cusTe{Son aquellas señales de igual frecuencia.}
+    \begin{equation*}
+        \omega_1=\omega_2
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Señales coherentes}
+    \cusTe{Son aquellas señales correlacionadas sin desfasaje.}
+    \begin{equation*}
+        \omega_1=\omega_2 \quad \land \quad \varphi_1=\varphi_2
+    \end{equation*}
+\end{mdframed}
+
+Planteemos entonces la situación general en la que se quieren sumar dos presiones en un punto a cierta distancia de cada fuente.
+
+Se quiere calcular un valor de presión total que sea representativo de la interacción de ambas señales.
+Dado que se están sumando funciones periódicas cuyo promedio es nulo, se realiza una \emph{suma energética} elevando al cuadrado el módulo de la presión total.
+\begin{align*}
+    p_T &= p_1 + p_2
+    \\
+    \norm{p_T} &= \norm{p_1 + p_2}
+    \\
+    \norm{p_T}^2 &= \norm{p_1 + p_2}^2
+\end{align*}
+
+Para sortear la dependencia temporal y espacial, se usa una propiedad de los números complejos \cite{2} (Pág. 25) que demuestra que:
+\begin{equation}
+    \norm{p_T}^2 = \norm{p_1}^2 + \norm{p_2}^2 + 2 \norm{p_1}^2 \norm{p_2}^2 \cos(\Delta \theta)
+    \label{eqn:|P_T|^2}
+\end{equation}
+
+Donde $\cos(\Delta \theta)$ es el factor de correlación dado por:
+\begin{equation*}
+    \Delta \theta = \left( \omega_1 t + \varphi_1 \right) - \left( \omega_2 t + \varphi_2 \right) = \Delta \omega \, t + \Delta \varphi
+\end{equation*}
+
+
+\subsection{Suma correlacionada}
+
+Consideremos dos señales correlacionadas que, por definición, tienen la misma frecuencia.
+Reemplazando $\omega_1=\omega_2$ en la ecuación \ref{eqn:|P_T|^2} la suma queda dada por:
+\begin{equation*}
+    \norm{p_T}^2 = \norm{p_1}^2 + \norm{p_2}^2 + 2 \norm{p_1}^2 \norm{p_2}^2 \cos(\Delta \varphi)
+\end{equation*}
+
+Podemos suponer que las presiones que están siendo sumadas tienen la misma amplitud.
+\begin{equation*}
+    \norm{p_1} = \norm{p_2} = \rms{p}
+\end{equation*}
+
+De esta forma se analizaría la variación del nivel de presión sonora al duplicar la presión eficaz, en función de la diferencia de fase entre ambas presiones.
+Identificamos así tres situaciones destacables.
+
+\begin{itemize}
+    \item \cusTi{Suma completa:}
+    $\Delta \varphi = \ang{0} \implies \cos(\Delta \varphi)=1$
+    \begin{align*}
+        \norm{p_T}^2 &= \norm{p_1}^2 + \norm{p_2}^2 + 2\norm{p_1} \norm{p_2}
+        \\
+        &= ( \norm{p_1} + \norm{p_2} )^2
+        \\
+        &= (2\,\rms{p})^2
+        \\
+        SPL_T &= 10 \log \left[ \frac{(2\,\rms{p})^2}{\sub{p}{ref}^2} \right] \si{\deci\bel}
+        \\
+        &= 20 \log \left( 2 \right) \si{\deci\bel} + 20 \log \left( \frac{\rms{p}}{\sub{p}{ref}} \right) \si{\deci\bel}
+        \\
+        &= 6\,\si{\deci\bel} + SPL
+    \end{align*}
+    
+    \item \cusTi{Suma parcial:}
+    $\Delta \varphi = \ang{90} \implies \cos(\Delta \varphi)=0$
+    \begin{align*}
+        \norm{p_T}^2 &= \norm{p_1}^2 + \norm{p_2}^2 = 2\,\rms{p}^2
+        \\
+        SPL_T &= 10 \log \left( \frac{2\,\rms{p}^2}{\sub{p}{ref}^2} \right) \si{\deci\bel}
+        \\
+        &= 10 \log \left( 2 \right) \si{\deci\bel} + 20 \log \left( \frac{\rms{p}}{\sub{p}{ref}} \right) \si{\deci\bel}
+        \\
+        &= 3\,\si{\deci\bel} + SPL
+    \end{align*}
+    
+    \item \cusTi{Cancelación:}
+    $\Delta \varphi = \ang{180} \implies \cos(\Delta \varphi)=-1$
+    \begin{align*}
+        \norm{p_T}^2 &= \norm{p_1}^2 + \norm{p_2}^2 - 2\norm{p_1} \norm{p_2}
+        \\
+        &= ( \norm{p_1} - \norm{p_2} )^2 = 0
+        \\
+        SPL_T &= 10 \log \left( \frac{0}{\sub{p}{ref}^2} \right) \si{\deci\bel}
+        = -\infty\,\si{\deci\bel}
+\end{align*}
+\end{itemize}
+
+A partir de estas situaciones particulares, se puede inferir el comportamiento general de la presión sumada en función de la fase.
+
+A continuación se muestra, para un desfasaje de $\ang{0}$ a $\ang{360}$, valores de grises que representan la cancelación (en negro) o amplificación (en blanco) que resulta de sumar dos presiones de igual magnitud.
+
+\begin{center}
+    \def\svgwidth{0.5\linewidth}
+    \input{./images/suma-cancelacion.pdf_tex}
+\end{center}
+
+
+\subsection{Suma no correlacionada}
+
+La suma de señales que tengan diferentes frecuencias puede ser hecha según la ecuación \ref{eqn:|P_T|^2} misma.
+
+Pero en este caso, dado que $\omega_1\neq\omega_2$, el factor de correlatividad $\cos(\Delta \omega \, t + \Delta \varphi)$ va a estar en función del tiempo.
+Esto implica que la suma de las presiones va a producir cancelaciones y amplificaciones de manera periódica.
+Como está acotado entre $+1$ y $-1$, el factor de correlatividad tomará ese rango de valores conforme transcurra el tiempo.
+Por lo tanto, a veces la suma va a producir una presión de $+6\,\si{\deci\bel}$ y a veces una cancelación de $-\infty\,\si{\deci\bel}$, como máximo si las presiones son de igual módulo.
+
+Por este motivo no es posible determinar casos particulares para distintos valores de desfasaje.
+En contrapartida, se puede determinar un valor que represente la presión total promedio que esté siendo sumada.
+\begin{align*}
+    \rms{\norm{p_T}} &= \sqrt{\frac{1}{2\pi} \int_0^{2\pi} \norm{p_T}^2 \dif t}
+    \\
+    &= \scale{0.8}{\sqrt{\frac{1}{2\pi} \int_0^{2\pi} \left[ \norm{p_1}^2 + \norm{p_2}^2 + 2 \norm{p_1}^2 \norm{p_2}^2 \cos( \Delta \omega \, t + \Delta \varphi) \right] \dif t}}
+    \\
+    &= \sqrt{\norm{p_1}^2 + \norm{p_2}^2}
+\end{align*}
+
+Elevando al cuadrado y dividiendo por $\sub{p}{ref}^2$ en la ecuación anterior queda la suma energética:
+\begin{equation*}
+    \frac{\rms{{p_T}^2}}{\sub{p}{ref}^2} = \frac{\norm{p_1}^2+\norm{p_2}^2}{\sub{p}{ref}^2} = \sum_{\ith=1}^\nth \frac{\norm{p_\ith}^2}{\sub{p}{ref}^2}
+\end{equation*}
+
+El nivel de presión total en decibeles queda dado según la definición \ref{defn:SPL} aplicada a la presión total.
+
+% ¿Cómo es que cada presión |p_n| pico pasa a ser eficaz en la definición?
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Nivel de presión global}
+    \begin{equation*}
+        SPL_T = 10 \log \left( \sum_{\ith=1}^\nth \frac{\rms{p}_\ith^2}{\sub{p}{ref}^2} \right) \si{\deci\bel}
+    \end{equation*}
+\end{mdframed}
+
+Según la definición \ref{defn:SPL}, cada presión individual es:
+\begin{gather*}
+    SPL_\ith = 10 \log \left( \frac{\rms{p}_\ith^2}{\sub{p}{ref}^2} \right) \si{\deci\bel}
+    \\
+    10^{\tfrac{SPL_\ith}{10}} = \frac{\rms{p}_\ith^2}{\sub{p}{ref}^2}
+\end{gather*}
+
+Pudiendo reemplazar la sumatoria anterior, obteniendo la siguiente definición equivalente.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Nivel de presión global}
+    \begin{equation*}
+        SPL_T = 10 \log \left( \sum_{\ith=1}^\nth 10^{\tfrac{SPL_\ith}{10}} \right) \si{\deci\bel}
+    \end{equation*}
+\end{mdframed}
+
+Por otro lado, el promedio energético se puede calcular a partir de niveles de presión discretos de la siguiente manera.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Nivel de presión promedio}
+    \begin{equation*}
+        \ave{SPL}=20\log\left(\frac{\sum_{\ith=1}^\nth 10^{\tfrac{L_\ith}{20}}}{N}\right) \si{\deci\bel}
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Efecto Doppler}
+
+El efecto Doppler es la variación en la frecuencia relativa de una onda que se debe al movimiento de la fuente respecto del receptor o viceversa.
+
+En el siguiente esquema se tiene una fuente $F$ que emite un sonido de frecuencia $f$ y se mueve en línea recta a velocidad constante $v_F$ hacia un receptor $R$ que está en reposo.
+
+\begin{center}
+    \def\svgwidth{0.8\linewidth}
+    \input{./images/doppler-diag.pdf_tex}
+\end{center}
+
+Sean
+\begin{itemize}
+    \item $t_1$ el momento en que la fuente pasa por $x=F_1$.
+    \item $t_2$ el momento en que la fuente pasa por $x=F_2$.
+    \item $t'_1$ el momento en que la onda emitida en $F_1$ llega a $x=R$.
+    \item $t'_2$ el momento en que la onda emitida en $F_2$ llega a $x=R$.
+\end{itemize}
+
+Supongamos que la fuente se mueve en silencio hasta que pasa por $F_1$ donde emite sonido.
+Luego permanece en silencio nuevamente hasta que, transcurrido un intervalo de tiempo equivalente al período $T$ de la onda emitida, emite nuevamente la misma señal.
+\begin{equation*}
+    t_2-t_1 = T = \frac{D_F}{v_F}
+\end{equation*}
+
+Según la velocidad de propagación ($c$) se definen los intervalos de tiempo que tarda en llegar el sonido desde los respectivos puntos de emisión $F_1$ y $F_2$ al receptor $R$.
+\begin{gather*}
+    \Delta t_1 = t_1' - t_1 = \frac{D_{R1}}{c}
+    \\
+    \Delta t_2 = t_2' - t_2 = \frac{D_{R2}}{c}
+\end{gather*}
+
+El período relativo $T'$ de la onda que escuchará el receptor está dado por:
+\begin{equation*}
+    T' = t_2'-t_1'
+\end{equation*}
+
+Por lo tanto, la frecuencia relativa es:
+\begin{align*}
+    f' &= \frac{1}{T'}
+    \\
+    &= \frac{1}{\left( \dfrac{D_{R2}}{c}+t_2 \right) - \left( \dfrac{D_{R1}}{c}+t_1 \right)}
+    \\
+    &= \frac{1}{\dfrac{D_{R2}}{c} - \dfrac{D_{R1}}{c} + T}
+    \\
+    &= \frac{1}{\dfrac{-D_F}{c} + T}
+    \\
+    &= \frac{1}{\dfrac{-T \, v_F}{c} + T}
+    \\
+    &= \frac{1}{T\left(1-\dfrac{v_F}{c}\right)}
+\end{align*}
+
+Siendo la frecuencia relativa escuchada por el receptor mayor a la frecuencia emitida:
+\begin{equation*}
+    f' = \frac{f}{1-\dfrac{v_F}{c}} > f
+\end{equation*}
+
+Lo cual implica que el sonido percibido por el receptor es más agudo que el emitido.
+Si la fuente estuviese moviéndose en sentido contrario, el signo de $v_F$ sería negativo y la frecuencia relativa sería menor a la frecuencia emitida
+Por lo tanto, si la fuente se aleja del receptor, este escucharía un sonido más grave que el emitido.
+
+Esto significa que si la velocidad de la fuente es muy baja comparado con la velocidad de propagación del sonido, la variación en la frecuencia relativa podría ser despreciable.
+Por otro lado, si la fuente viaja a la velocidad del sonido se genera un frente de onda que por un instante impacta al receptor y luego este percibe la fuente alejándose con una frecuencia relativa más grave.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Número de Match}
+    \cusTe{El número de Match es una medida de velocidad relativa que se define como el cociente entre la velocidad de un objeto y la velocidad del sonido en el medio en que se mueve dicho objeto.}
+    \begin{equation*}
+        \mathcal{M} = \frac{v_F}{c}
+    \end{equation*}
+\end{mdframed}
+
+El siguiente gráfico representa el frente de onda de ona fuente subsónica, de Match 1 y supersónica respectivamente.
+
+\begin{center}
+    \def\svgwidth{\linewidth}
+    \input{./images/doppler-match.pdf_tex}
+\end{center}
+
+\section{Energía reflejada, absorbida y transmitida}
+\label{sec:energyRAT}
+
+Cuando un sonido propagándose se encuentra con un obstáculo, parte del mismo va a ser reflejado, parte absorbido y parte transmitido a través del obstáculo.
+
+\begin{center}
+    \def\svgwidth{0.6\linewidth}
+    \input{./images/energia-rat.pdf_tex}
+\end{center}
+
+Resulta útil estudiar la situación a partir de consideraciones energéticas.
+La energía incidente será igual a la reflejada, más la absorbida, más la transmitida:
+\begin{gather*}
+    \sub{E}{in} = E_R + E_A + E_T
+    \\
+    \frac{\dif \sub{E}{in}}{\dif t} = \sub{W}{in} = W_R + W_A + W_T
+    \\
+    1 = \frac{W_R}{\sub{W}{in}} + \frac{W_A}{\sub{W}{in}} + \frac{W_T}{\sub{W}{in}}
+\end{gather*}
+
+De esta forma, podemos definir coeficientes de reflexión, absorción y transmisión.
+Estos serán inherentes a las cualidades constructivas del obstáculo.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:coefficients}
+    \end{defn}
+    \cusTi{Coeficientes energéticos}
+    \cusTe{Coeficiente de reflexión}
+    \begin{equation*}
+        \alpha_R = \frac{W_R}{\sub{W}{in}}
+    \end{equation*}
+    Coeficiente de absorción
+    \begin{equation*}
+        \alpha = \frac{W_A}{\sub{W}{in}}
+    \end{equation*}
+    Coeficiente de transmisión
+    \begin{equation*}
+        \tau = \frac{W_T}{\sub{W}{in}}
+    \end{equation*}
+\end{mdframed}
+
+Que verifican la siguiente relación:
+\begin{equation}
+    1 = \alpha_R + \alpha + \tau
+    \label{eqn:coefficients}
+\end{equation}
+
+Se pueden plantear dos tipos de análisis.
+Por un lado, se puede estudiar la absorción considerando la hipótesis $\tau=0$ en la ecuación \ref{eqn:coefficients}.
+Este es el caso de varias aplicaciones de la acústica arquitectónica para el estudio de las reflexiones en recintos.
+Por otro lado, se puede estudiar la transmisión considerando la hipótesis $\alpha=0$ en la ecuación \ref{eqn:coefficients}.
+Este es el caso de estudio, por ejemplo, de los silenciadores.
+
+
+\section{Reflexiones}
+
+Para estudiar las reflexiones de un recinto cerrado o un obstáculo y cómo estas serán percibidas desde cierto punto de escucha, se definen los siguientes conceptos.
+
+\begin{itemize}
+    \item \cusTi{Campo libre}
+    \cusTe{Espacio de propagación libre de obstáculos y por tanto sin reflexiones.}
+    
+    \item \cusTi{Campo cercano}
+    \cusTe{Espacio donde la impedancia es compleja.}
+    
+    \item \cusTi{Campo lejano}
+    \cusTe{Espacio donde la impedancia imaginaria es despreciable.}
+    
+    \item \cusTi{Campo directo}
+    \cusTe{Espacio no alterado por reflexiones durante el régimen permanente.
+    El nivel de presión cumple la ley cuadrática inversa (Sec. \ref{sec:inverseSquareLaw}).}
+    
+    \item \cusTi{Campo difuso o reverberante}
+    \cusTe{Predominancia de sonido reflejado con igual probabilidad en todas las direcciones durante el régimen permanente.
+    El nivel de presión no disminuye por divergencia, sino que permanece constante al aumentar distancia.}
+\end{itemize}
+
+Que pueden ser visualizados en el siguiente gráfico que determina el nivel de presión $SPL$ percibido en función de la distancia $r$ a la fuente.
+
+\begin{center}
+    \def\svgwidth{0.8\linewidth}
+    \input{./images/campos-de-sonido.pdf_tex}
+\end{center}
+
+Donde $d_c$ es la distancia crítica y $\mathcal{R}$ la constante de sala, que a su vez depende del coeficiente de absorción promedio $\overline{\alpha}$ definidos a continuación.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Distancia crítica}
+    \cusTe{Distancia a la que el nivel de presión del campo reverberado es igual al del campo directo.}
+    \begin{equation*}
+        d_c = \sqrt{\frac{Q\,\mathcal{R}}{16\pi}}
+    \end{equation*}
+\end{mdframed}
+
+La distancia crítica determina qué tan lejos de la fuente hay que estar para que el sonido directo tenga el mismo nivel que el sonido reverberado.
+
+Esto equivale a considerar $p_T^2=0$ en la ecuación \ref{eqn:criticalDist}, pudiendo despejar $S=4\pi d_c^2$ para inferir la definición anterior.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Constante de sala}
+    \begin{equation*}
+        \mathcal{R} = \frac{\overline{\alpha} \, S_T}{1-\overline{\alpha}}
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Coeficiente de absorción promedio}
+    \begin{equation*}
+        \overline{\alpha} = \frac{\sum \alpha_\ith \, S_\ith}{S_T}
+    \end{equation*}
+\end{mdframed}
+
+Consideremos un punto de escucha para una sala en la que una fuente comienza a radiar energía sonora.
+Al prenderse la fuente, el sonido emitido chocará contra las paredes, el techo y el piso y rápidamente comenzarán a darse reflexiones dentro de la sala.
+Se estudia, a partir de ese momento, la evolución de la energía aportada por el campo difuso conforme pasa el tiempo.
+
+\begin{itemize}
+    \item \cusTi{Etapa de crecimiento:}
+    A medida que el punto es afectado por las reflexiones, la presión aumenta, y por ende la energía también lo hace.
+    Aunque, una porción de la energía es absorbida por las superficies en cada reflexión.
+    
+    \item \cusTi{Régimen permanente:}
+    A mayor tiempo, las reflexiones que impacten el punto de escucha serán de mayor orden, aportando menos energía.
+    Pero como la fuente sigue radiando, la energía absorbida por la sala cada vez crece más.
+    Para el momento en que la energía absorbida iguale la energía reflejada, la energía en el punto de escucha permanecerá constante.
+    
+    \item \cusTi{Etapa de decaimiento:}
+    Si la fuente deja de emitir sonido, ya no se generarán nuevas reflexiones.
+    La energía que reciba el punto solo será de las reflexiones ya existentes, hasta que se disipen por completo.
+\end{itemize}
+
+A continuación se esquematiza la evolución de la energía de la sala en función del tiempo, descripta anteriormente.
+
+\begin{center}
+    \def\svgwidth{0.5\linewidth}
+    \input{./images/energia-sala.pdf_tex}
+\end{center}
+
+Se pretende estudiar el aporte energético del capo difuso durante el régimen permanente para cualquier punto de un recinto, independientemente del sonido directo que reciba.
+
+Para esto, se suman los infinitos vectores intensidad de las reflexiones de orden superior que eventualmente van a incidir sobre un elemento de superficie del recinto.
+Todas las direcciones de incidencia son equiprobables, por estar bajo la hipótesis de campo difuso.
+La superficie de incidencia es representada en la siguiente figura como la intersección entre un plano vertical y una semiesfera.
+
+\begin{center}
+    \def\svgwidth{0.6\linewidth}
+    \input{./images/campo-difuso-int.pdf_tex}
+\end{center}
+
+El plano vertical corresponde al segmento de superficie sobre la que se quiere evaluar la incidencia.
+Los versores normales de la superficie semiesférica representan las direcciones de posible incidencia para el punto central.
+Integrando, se tiene que la intensidad incidente es: % Falta demostrar
+\begin{equation} 
+    \sub{I}{in} = \frac{\sub{p}{dif}^2}{4 Z}
+    \label{eqn:Idiffuse}
+\end{equation}
+
+Siguiendo el mismo razonamiento de la sección \ref{sec:energyRAT}, al estar haciendo un estudio de absorción y reflexión, se plantea $E_T=0$ y se tiene para la potencia $W$ de la fuente:
+\begin{gather*}
+    E_R = \sub{E}{in} - E_A
+    \\
+    \frac{\dif E_R}{\dif t} = \sub{W}{in} - W_A
+    \\
+    \frac{\dif E_R}{\dif t} = W \left(1-\overline{\alpha}\right) - \sub{W}{in} \, \overline{\alpha}
+    \\
+    \frac{\dif E_R}{\dif t} = W \left(1-\overline{\alpha}\right) - \sub{I}{in} \, S_T \, \overline{\alpha}
+\end{gather*}
+
+Según la hipótesis de régimen constante $\dif E_R/\dif t=0$ lo que implica que la energía absorbida es igual a la incidente.
+\begin{gather*}
+    W \left(1-\overline{\alpha}\right) = \sub{I}{in} \, S_T \, \overline{\alpha}
+    \\
+    \frac{W}{\sub{I}{in}} = \frac{S_T \, \overline{\alpha}}{1-\overline{\alpha}} = \mathcal{R}
+    \\
+    \sub{I}{in} = \frac{W}{\mathcal{R}}
+\end{gather*}
+
+Luego, al reemplazar la intensidad incidente según la ecuación \ref{eqn:Idiffuse} se tiene:
+\begin{equation}
+    \sub{I}{in} = \frac{W}{\mathcal{R}} = \frac{\sub{p}{dif}^2}{4 Z}
+    \label{eqn:Iin2}
+\end{equation}
+
+Finalmente, planteamos la presión total que va a incidir en el punto de escucha.
+Se trata de una suma no correlacionada, ya que al tener todas las direcciones igual probabilidad de incidencia, hay infinitas fases.
+La presión directa se calcula según la propiedad \ref{prop:p^2/Z=W/S}, mientras que la presión que aporta el campo reverberado es despejada de la ecuación \ref{eqn:Iin2}.
+\begin{gather}
+    p_T^2 = \sub{p}{dir}^2 + \sub{p}{dif}^2
+    \notag
+    \\
+    p_T^2 = \frac{W \, Z \, Q}{S} + \frac{4 \, W \, Z}{\mathcal{R}}
+    \notag
+    \\
+    p_T^2 = W\,Z \left( \frac{Q}{S} + \frac{4}{\mathcal{R}}\right)
+    \label{eqn:criticalDist}
+\end{gather}
+
+Podemos multiplicar la parte derecha por $\sub{W}{ref}/\sub{W}{ref}$ y y dividir ambos miembros por $\sub{p}{ref}^2$ para obtener:
+\begin{gather*}
+    \frac{p_T^2}{\sub{p}{ref}^2} = \frac{W}{\sub{W}{ref}} \left( \frac{Q}{S} + \frac{4}{\mathcal{R}}\right) \frac{Z \, \sub{W}{ref}}{\sub{p}{ref}^2}
+    \\
+    SPL_T = L_W + 10 \log \left( \frac{Q}{S} + \frac{4}{\mathcal{R}} \right) + 10 \log \left( \frac{Z \, \sub{W}{ref}}{\sub{p}{ref}^2} \right)
+\end{gather*}
+
+Siendo $10 \log \left( \frac{Z \, \sub{W}{ref}}{\sub{p}{ref}^2} \right)= 0.1\,\si{\deci\bel}$ despreciable, de manera que es válida la aproximación:
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+        \label{prop:directDiffuseFields}
+    \end{prop}
+    \cusTi{Aporte de campo directo y campo difuso}
+    \begin{equation*}
+        SPL_T = L_W + 10 \log \left( \frac{Q}{S} + \frac{4}{\mathcal{R}} \right)
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Método de fuente virtual}
+
+Las reflexiones pueden ser calculadas como una suma correlacionada de un sonido emitido por una fuente más el mismo sonido emitido por una fuente que está más lejos que determine el tiempo que tarda en llegar el sonido reflejado.
+El método consiste en espejar la fuente real de manera axial a la superficie reflectante y suponer que la emisora de la reflexión es la fuente virtual en vez de la superficie, que no se tiene en cuenta.
+De esta forma, el sonido percibido por un receptor va a ser primero el de la fuente real y luego el de la fuente virtual, situación análoga a percibir primero el sonido directo y luego el reflejado.
+
+En el esquema a continuación, la línea de puntos y rayas representa el rayo de sonido directo.
+En línea contínua se muestra el recorrido real del rayo de sonido reflejado.
+Y la línea de rayas muestra un tramo del recorrido del sonido de la fuente imagen o virtual.
+
+\begin{center}
+    \def\svgwidth{0.8\linewidth}
+    \input{./images/fuentes-virtuales.pdf_tex}
+\end{center}
+
+La potencia de la fuente real va a ser $W$ mientras que la potencia de la fuente virtual depende del orden $n$ de reflexión:
+\begin{equation*}
+    \tilde{W} = W \left(1-\alpha\right)^n
+\end{equation*}
+
+La diferencia entre las distancias directa y reflejada va a estar dada por la velocidad de propagación del sonido, y la diferencia de tiempo de arribo de cada rayo como sigue.
+\begin{equation*}
+    c = \frac{\Delta r}{\Delta t} \iff \Delta t = \frac{\Delta r}{c} \iff \Delta r = c \, \Delta t = r_2 - r_1
+\end{equation*}
+
+La presión en el punto del receptor va a ser la suma del sonido directo más el reflejado.
+\begin{align*}
+    p(r,t) &= \left( \frac{A}{r_1} \, e^{-\iu k r_1} + \frac{A}{r_2} \, e^{-\iu k r_2} \right) e^{\iu \omega t}
+    \\
+    &= \frac{A}{r_1} \, e^{\iu(\omega t - k r_1)} + \frac{A}{r_2} \, e^{\iu(\omega t - k r_2)}
+    \\
+    &= \frac{A}{r_1} \, e^{\iu(\omega t - k r_1)} + \frac{A}{r_2} \, e^{\iu[\omega t - k (c \, \Delta t + r_1)]}
+    \\
+    &= \frac{A}{r_1} \, e^{\iu(\omega t - k r_1)} + \frac{A}{r_2} \, e^{\iu(\omega t - k r_1)} \, e^{-\iu k c \, \Delta t}
+    \\
+    &= \frac{A}{r_1} \, e^{\iu(\omega t - k r_1)} + \frac{r_1}{r_2} \, \frac{A}{r_1} \, e^{\iu(\omega t - k r_1)} \, e^{-\iu \omega \, \Delta t}
+    \\
+    &= \frac{A}{r_1} \, e^{\iu(\omega t - k r_1)} \left( 1 + \frac{r_1}{r_2} \, e^{-\iu \omega \, \Delta t} \right)
+    \\
+    &= \sub{p}{dir} (r,t) \left( 1 + \frac{r_1}{r_2} \, e^{-\iu \omega \, \Delta t} \right)
+    \\
+    &= \sub{p}{dir} (r,t) \left( 1 + \frac{r_1}{r_2} \, e^{-\iu k \, \Delta r} \right)
+\end{align*}
+
+Se puede calcular la presión eficaz de $p(r,t)$ en la ecuación anterior usando la siguiente propiedad de los números complejos:
+\begin{align*}
+    \rms{p}^2 &= \frac{\norm{p(r,t)}^2}{2} = \frac{p(r,t) \, \overline{p(r,t)}}{2}
+    \\
+    &= \frac{\norm{\sub{p}{dir}}^2}{2} \left( 1 + \frac{r_1}{r_2} \, e^{-\iu k \, \Delta r} \right) \left( 1 + \frac{r_1}{r_2} \, e^{\iu k \, \Delta r} \right)
+\end{align*}
+
+Obteniendo así:
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Suma correlacionada}
+    \begin{equation*}
+        \rms{p}^2 = \frac{\norm{\sub{p}{dir}}^2}{2} \left[ 1 + \left(\frac{r_1}{r_2}\right)^2 + 2 \left(\frac{r_1}{r_2}\right) \cos (k \, \Delta r) \right]
+    \end{equation*}
+\end{mdframed}
+
+O bien, considerando que la superficie reflectante tiene un coeficiente de absorción no nulo:
+\begin{equation*}
+    \scale{0.88}
+    {
+    \rms{p}^2 = \frac{\norm{\sub{p}{dir}}^2}{2} \left[ 1 + \left(1-\alpha\right) \left(\frac{r_1}{r_2}\right)^2 + 2 \sqrt{1-\alpha} \left(\frac{r_1}{r_2}\right) \cos (k \, \Delta r) \right]
+    }
+\end{equation*}
+
+
+\section{Tiempo de reverberación}
+
+% ¿De dónde sale la reducción de 60dB? ¿Qué es p^2(t)? Ver ecuación diferencial de TR. p238 apunte
+
+% \begin{gather*}
+%     p^2(t) = p_0^2 \, e^{\tfrac{-c\,\overline{\alpha}\,S_T}{4V}t}
+%     \\
+%     e^{\tfrac{-c\,\overline{\alpha}\,S_T}{4V}t} = 10^6
+% \end{gather*}
+
+Se define el tiempo de reverberación como el tiempo necesario para que el nivel de intensidad acústica de un sonido disminuya $60\,\si{\deci\bel}$ con respecto al valor inicial.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Tiempo de reverberación}
+    \begin{equation*}
+        TR = \overbrace{ \frac{24}{c \, \log (e)} }^{\approx 0.161\,\si{\second\per\metre}} \, \frac{V}{\mathcal{A}}
+    \end{equation*}
+\end{mdframed}
+
+Donde $\mathcal{A}$ es un término que corresponde a la absorción del recinto y está dado en metros cuadrados.
+Puede calcularse a partir de varios modelos empíricos.
+Algunos se resumen a continuación:
+
+\begin{itemize}
+    \item
+    Absorción de Sabine:
+    \begin{equation*}
+        \mathcal{A} = \overline{\alpha} \, S_T
+    \end{equation*}
+    Hipótesis: superficies con absorción homogénea, sala regular, sala no muy absorbente.
+    
+    \item
+    Absorción de Norris - Eyring:
+    \begin{equation*}
+        \mathcal{A} = - S_T \ln \left(1-\overline{\alpha}\right)
+    \end{equation*}
+    Hipótesis: modelo por rayos paralelos para recintos con absorción no necesariamente homogénea y bastante absorbente.
+    
+    \item
+    Absorción de Millington:
+    \begin{equation*}
+        \mathcal{A} = -\sum_\ith S_\ith \ln \left( 1-\alpha_\ith \right)
+    \end{equation*}
+    Hipótesis: modelo por rayos en serie para recintos con absorción no necesariamente homogénea.
+    
+    \item
+    Absorción de Eyring - Millington:
+    \begin{equation*}
+        \mathcal{A} = - \sum_\kth S_\kth \ln \left( 1-\frac{\sum_\ith S_\ith \, \alpha_\ith}{S_T} \right)
+    \end{equation*}
+    Hipótesis: modelo por rayos serie-paralelos para recintos con absorción no necesariamente homogénea que tengan grandes superficies $S_\kth$ compuestas por pequeñas superficies $S_\ith$.
+\end{itemize}
+
+Y podemos encontrar correcciones más sofisticadas para la fórmula de $TR$ en su totalidad:
+
+\begin{itemize}
+    \item
+    Corrección de Fitzroy
+    \begin{equation*}
+        TR = \sum_{\ith=x;y;z} \frac{0.161 \, V}{-\frac{S_T^2}{S_\ith} \ln \left(1-\alpha_\ith\right)}
+    \end{equation*}
+    Hipótesis: modelo para salas rectangulares con absorción muy distinta entre superficies.
+    
+    \item
+    Corrección de Arau
+    \begin{equation*}
+        TR = \prod_{\ith=x;y;z} \left[ \frac{0.161 \, V}{-S_T \ln \left(1-\alpha_\ith\right)} \right]^\frac{S_\ith}{S}
+    \end{equation*}
+    Hipótesis: modelo para salas rectangulares con absorción muy distinta entre superficies.
+\end{itemize}
+
+% Revisar: ¿S es la sup total S_T? En la diapositiva aparece como S a secas.
+
+Cuando los cuerpos dentro del recinto presentan una absorción representativa, resulta conveniente considerarlo.
+
+La absorción del aire está dada por:
+\begin{equation*}
+    \sub{\mathcal{A}}{air} = \frac{34 \times 10^{-9} \left[1-0.04\left(T-20\si{\celsius}\right)\right] V \, f^2 }{\% \text{humedad}}
+\end{equation*}
+
+% ¿Los 20º son el Celsius o Kelvin?

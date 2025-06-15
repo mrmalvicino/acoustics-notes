@@ -1,0 +1,1260 @@
+\chapter{El fenómeno sonoro}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:sound}
+    \end{defn}
+    \cusTi{Sonido}
+    \cusTe{El sonido es una variación de presión o desplazamiento de partículas que se propaga en un medio elástico a causa de una perturbación que sea detectable por un instrumento tecnológico o mediante el órgano receptor en un ser vivo.}
+\end{mdframed}
+
+\section{Forma de onda}
+
+Una onda es la caracterización de la propagación del sonido en espacio y tiempo.
+La representación de una onda para un punto fijo del espacio conforme transcurre el tiempo se conoce como \emph{forma de onda}.
+
+En el siguiente gráfico se tiene un ejemplo para la forma de onda de la presión acústica.
+Se observa que esta toma distintos valores en función del tiempo en torno a $p_0$, que es el promedio.
+
+\begin{center}
+    \def\svgwidth{0.8\linewidth}
+    \input{./images/pressure-waveform.pdf_tex}
+\end{center}
+
+Siendo $p_0$ la presión atmosférica estándar:
+\begin{equation*}
+    p_0 = 1 \,\si{\atmosphere} = 1013 \,\si{\milli\bar} \approxeq 10^5 \,\si{\pascal} = 10^5 \,\si{\newton\per\metre^2}
+\end{equation*}
+
+
+\section{Hipótesis de la acústica lineal}
+\label{sec:linAcousticHyp}
+
+La acústica lineal estudia los fenómenos sonoros que presentan un nivel de presión sonora relativamente bajo, menor a $160\,\si{\deci\bel}$ aproximadamente.
+Las perturbaciones que generan una variación de presión no lineal no pueden ser modeladas matemáticamente de manera predecible por la ecuación de onda.
+
+Una perturbación comprime el volumen aumentando su presión y luego expande el volumen disminuyendo la presión.
+Esta transformación se da de manera periódica conforme a la frecuencia de excitación, de modo que no hay tiempo suficiente para que se genere transferencia de calor entre dos momentos de máxima presión.
+
+Suponemos entonces que:
+
+\begin{itemize}
+    \item El desplazamiento de las partículas al rededor de su punto de equilibrio es chico.
+
+    \item Las variaciones de presión y densidad son bajas en relación a las magnitudes en ausencia de una perturbación.
+    
+    \item El medio es homogéneo.
+    Ante la ausencia de un disturbio, la densidad y la presión valen $\rho_0$ y $p_0$ respectivamente para todos los puntos.
+    
+    \item El rozamiento del medio es despreciable.
+    No hay pérdidas de energía por disipación.
+    
+    \item Las distancias son menores a $100\,\si{\metre}$.
+    Se desprecia la pérdida de energía por divergencia.
+    
+    \item La transformación efectuada por una onda de sonido no es isoterma sino adiabática, verificando que $p\,V^\gamma$ es constante.
+\end{itemize}
+
+Pudiendo desarrollar:
+
+\begin{align*}
+    \Delta \left( p\,V^\gamma \right) &= 0
+    \\
+    p_1\,V_1^\gamma &= p_0\,V_0^\gamma
+    \\
+    p_1 &= p_0 \left(\frac{V_0}{V_1} \right)^\gamma
+    \\
+    p_1 &= p_0 \left( \frac{\tfrac{m}{\rho_0}}{\tfrac{m}{\rho_1}} \right)^\gamma
+    \\
+    p_1 &= p_0 \left( \frac{\rho_1}{\rho_0} \right)^\gamma
+\end{align*}
+
+A continuación se grafica la relación obtenida para $p_1$ en función de $\rho_1$ con $\gamma=1.4$ y se muestra la recta tangente a fin que pasa por $[\rho_0;p_0]$.
+
+\begin{center}
+    \def\svgwidth{0.8\linewidth}
+    \input{./images/pressure-density.pdf_tex}
+\end{center}
+
+Dado que existe la derivada de la función $p_1(\rho_1)$, vemos que la recta tangente que pasa por $p_1(\rho_0)$ es una buena aproximación lineal.
+\begin{equation*}
+    \frac{\dif}{\dif \rho_1} p_1(\rho_1) = \frac{p_0 \, \gamma}{\rho_0^\gamma} \, \rho_1^{\gamma-1}
+\end{equation*}
+
+Evaluando la derivada en $\rho_1=\rho_0$ se tiene:
+\begin{equation*}
+    \frac{\dif}{\dif \rho_1} p_1(\rho_0) = \frac{p_0 \, \gamma}{\rho_0^\gamma} \, \rho_0^{\gamma-1} = \frac{p_0 \, \gamma}{\rho_0}
+\end{equation*}
+
+Se plantea la forma diferencial $\dif p_1$ que es la aproximación lineal de $p_1$:
+\begin{align*}
+    \dif p_1 = \frac{p_0 \, \gamma}{\rho_0} \, \dif \rho_1 = \frac{p_0 \, \gamma}{\rho_0} \, \Delta \rho_1 & \approx \Delta p_1
+    \\
+    \frac{p_0 \, \gamma}{\rho_0} \left(\rho_1-\rho_0\right) & \approx \left(p_1-p_0\right)
+\end{align*}
+
+Se define la presión acústica $p=p_1-p_0$ como la diferencia entre la presión total y la presión del fluido sin perturbar.
+Análogamente se define $\rho=\rho_1-\rho_0$ para la densidad.
+Quedando finalmente:
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+        \label{prop:linearAcoustics}
+    \end{prop}
+    \cusTi{Hipótesis de la acústica lineal}
+    \begin{equation*}
+        p \approx c^2\,\rho
+    \end{equation*}
+\end{mdframed}
+
+
+Donde $c^2=\tfrac{p_0 \, \gamma}{\rho_0}$ es la velocidad de propagación del sonido, verificable en el siguiente análisis dimensional.
+\begin{equation*}
+    \frac
+    {p_0 \, \gamma}{\rho_0}
+    \equiv
+    \frac{\dfrac{\si{\newton}}{\si{\metre^2}}}{\dfrac{\si{\kilo\gram}}{\si{\metre^3}}}
+    =
+    \frac{\dfrac{\si{\kilo\gram} \, \si{\metre}}{\si{\second^2}} \, \dfrac{1}{\si{\metre^2}}}{\dfrac{\si{\kilo\gram}}{\si{\metre^3}}} =
+    \frac{\si{\metre^2}}{\si{\second^2}}
+    \equiv
+    c^2
+\end{equation*}
+
+% ¿Cómo sabés que esa velocidad es en efecto la velocidad de propagación de la onda?
+
+
+\section{Ecuación de onda de presión en fluídos}
+
+Consideremos una porción de cierto fluido dentro de un conducto de área transversal $\Delta y \, \Delta z$ con un pistón en un extremo.
+
+\begin{center}
+    \def\svgwidth{0.8\linewidth}
+    \input{./images/pressure-wave-eqn.pdf_tex}
+\end{center}
+
+Eventualmente el fluido podría estar en movimiento pero se supone que está en reposo, de modo que $v_0=0\,\si{\metre\per\second}$ es nula si no hay perturbaciones.
+
+En principio, el fluido está en equilibrio, contenido en un espacio volumétrico $V_0$ y tiene cierta presión inicial $p_0$ debido a la fuerza que hace contra el pistón por un lado y contra el resto del fluido por el otro.
+
+Luego, el pistón hace una fuerza $F_1$ mayor a la necesaria para simplemente contener el fluido, generando una perturbación en el medio.
+Las partículas del fluido pasan a estar más apretadas ya que disponen de un volumen $V_1$ menor al anterior, por lo que la presión $p_1$ va a ser mayor a la que tenía.
+La porción de fluido se desplaza momentáneamente alejándose del punto de equilibrio.
+
+La perturbación se propaga a lo largo del medio, pudiendo deducir lo que se conoce como ecuación \emph{de onda} que rige el comportamiento de la presión y el movimiento del fluido en el espacio y el tiempo.
+
+\subsection{Ecuación de onda en 1D}
+
+La capa de fluido que se encuentra contra el pistón es sometida a la fuerza impuesta aumentando la presión.
+Pero como los fluidos son medios elásticos y compresibles, el movimiento de las partículas aledañas al pistón no afectan inmediatamente a las más lejanas.
+La fuerza impuesta por el pistón afecta primero a las partículas cercanas, luego en menor medida a las partículas del centro, y finalmente a las partículas que están casi fuera de la porción de fluido considerada.
+Con lo cual, se tiene un gradiente de presión a lo largo del eje $x$.
+El incremento de fuerza es igual a menos el incremento de presión por el área del conducto:
+\begin{equation*}
+    \sum F = F_1 - F_0 = - \Delta p_1 \, \Delta y \, \Delta z
+\end{equation*}
+
+El incremento de la fuerza somete al fluido a una presión $p_1$ y la sumatoria de fuerzas según las leyes de Newton es:
+\begin{align*}
+    \sum F = F_1 - F_0  = m \, a &= \rho_1 \, V_1 \, \frac{\dif v_1}{\dif t}
+    \\
+    &= \rho_1 \, \Delta x \, \Delta y \, \Delta z \, \frac{\dif v_1}{\dif t}
+    \\
+    &= \Delta x \, \Delta y \, \Delta z \, \frac{\dif \left( \rho_1 \, v_1 \right)}{\dif t}
+\end{align*}
+
+Igualando:
+\begin{equation}
+    - \Delta p_1 \, \Delta y \, \Delta z
+    =
+    \Delta x \, \Delta y \, \Delta z \, \frac{\dif \left( \rho_1 \, v_1 \right)}{\dif t}
+    \label{eqn:momentumDelta}
+\end{equation}
+
+Para una capa de fluido infinitamente delgada tal que $\Delta x \to 0$ se tiene:
+\begin{equation}
+    \frac{\dif p_1}{\dif x} = - \frac{\dif \left( \rho_1 \, v_1 \right)}{\dif t}
+    \label{eqn:momentumDif}
+\end{equation}
+
+Si bien puede variar el volumen y la presión, la masa de la porción de fluido considerada se conserva.
+Es la misma cantidad de partículas que ocupan más o menos lugar por estar menos o más apretadas respectivamente.
+No obstante, al considerar una sección transversal fija en el espacio observamos que las partículas de fluido entran y salen de la misma, atravesándola.
+
+Se analiza entonces el caudal másico dividido $\Delta x$:
+\begin{align*}
+    m &= \rho_1 V_1 = \rho_1 \, \Delta x \, \Delta y \, \Delta z
+    \\
+    \dot{m} &= \frac{\Delta m}{\Delta t}
+    \\
+    \frac{\dot{m}}{\Delta x} &= \frac{\Delta m}{\Delta t \, \Delta x}
+    = \frac{\Delta \left( \rho_1 \, \Delta x \, \Delta y \, \Delta z \right)}{\Delta t \, \Delta x}
+\end{align*}
+
+A partir de la definición anterior, se comparan dos cocientes incrementales con respecto a diferentes variables independientes.
+\begin{gather*}
+    \left\{
+    \begin{aligned}
+        \frac{\dot{m}}{\Delta x} &= \frac{\Delta \left( \rho_1 \, \Delta y \, \Delta z \right)}{\Delta t}
+        \\
+        \\
+        \frac{\dot{m}}{\Delta x} &= -\frac{\Delta \left( \rho_1 \, v_1 \, \Delta y \, \Delta z \right)}{\Delta x}
+    \end{aligned}
+    \right.
+\end{gather*}
+
+Observar que si la velocidad de las partículas del flujo es en el sentido de las $x$, la masa saliente es mayor a la entrante debido a la compresión, por lo que el caudal másico es negativo.
+
+Al igualar las ecuaciones del sistema se tiene:
+\begin{equation}
+    \frac{\Delta \left( \rho_1 \, \Delta y \, \Delta z \right)}{\Delta t}
+    =
+    -\frac{\Delta \left( \rho_1 \, v_1 \, \Delta y \, \Delta z \right)}{\Delta x}
+    \label{eqn:massDelta}
+\end{equation}
+
+Como el área $\Delta y \, \Delta z$ es constante, queda:
+\begin{equation}
+    \frac{\dif \rho_1}{\dif t} = - \frac{\dif \left( \rho_1 \, v_1 \right)}{\dif x}
+    \label{eqn:massDif}
+\end{equation}
+
+Es necesario linealizar las ecuaciones \ref{eqn:momentumDif} y \ref{eqn:massDif} para poder usar las hipótesis de la acústica lineal (Sec. \ref{sec:linAcousticHyp}).
+
+Teniendo en cuenta que:
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        p_1 &= p_0 + p(x,t)
+        \\
+        \rho_1 &= \rho_0 + \rho(x,t)
+        \\
+        v_1 &= v_0 + v(x,t) \quad \textrm{con } v_0=0\,\si{\metre\per\second}
+    \end{aligned}
+    \right.
+\end{equation*}
+
+La ecuación de la conservación del momento (Ec. \ref{eqn:momentumDif}) linealizada queda:
+\begin{align*}
+    \frac{\dif p_1}{\dif x}
+    &= - \frac{\dif \left( \rho_1 \, v_1 \right)}{\dif t}
+    \\
+    \frac{\dif}{\dif x} \left[ p_0 + p(x,t) \right]
+    &= - \frac{\dif}{\dif t} \left[ \rho_0 + \rho(x,t) \right] \left[ v_0 + v(x,t) \right]
+    \\
+    &= - \frac{\dif}{\dif t} \left[ \rho_0 \, v(x,t) + \rho(x,t) \, v(x,t) \right]
+    \\
+    \frac{\dif}{\dif x} p(x,t)
+    &= - \rho_0 \, \frac{\dif}{\dif t} v(x,t) + \frac{\dif}{\dif t} \left[ \rho(x,t) \, v(x,t) \right]
+\end{align*}
+
+El término que tiene ambas variables multiplicadas tiende a cero con mayor orden y es despreciable, obteniendo la \emph{ecuación de Euler} para la conservación del momento:
+\begin{equation}
+    \frac{\dif}{\dif x} p(x,t) = - \rho_0 \, \frac{\dif}{\dif t} v(x,t)
+    \label{eqn:EulerMomentumConservation}
+\end{equation}
+
+La ecuación de la conservación de la masa (Ec. \ref{eqn:massDif}) linealizada queda:
+\begin{align*}
+    \frac{\dif \rho_1}{\dif t} &= - \frac{\dif \left( \rho_1 \, v_1 \right)}{\dif x}
+    \\
+    \frac{\dif}{\dif t} \left[ \rho_0 + \rho(x,t) \right]
+    &= - \frac{\dif}{\dif x} \left[ \rho_0 + \rho(x,t) \right] \left[ v_0 + v(x,t) \right]
+    \\
+    &= - \frac{\dif}{\dif x} \left[ \rho_0 \, v(x,t) + \rho(x,t) \, v(x,t) \right]
+    \\
+    \frac{\dif}{\dif t} \rho(x,t)
+    &= - \rho_0 \, \frac{\dif}{\dif x} v(x,t) + \frac{\dif}{\dif x} \left[ \rho(x,t) \, v(x,t) \right]
+\end{align*}
+
+El término que tiene ambas variables multiplicadas tiende a cero con mayor orden y es despreciable:
+\begin{equation}
+    \frac{\dif}{\dif t} \rho(x,t) = - \rho_0 \, \frac{\dif}{\dif x} v(x,t)
+    \label{eqn:EulerMassConservation}
+\end{equation}
+
+Se define el siguiente sistema de ecuaciones a partir de la ecuación de la conservación del momento linealizada (Ec. \ref{eqn:EulerMomentumConservation}), la ecuación de la conservación de la masa linealizada (Ec. \ref{eqn:EulerMassConservation}) y la hipótesis de la acústica lineal (Prop. \ref{prop:linearAcoustics}).
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        \frac{\dif}{\dif x} p(x,t) &= - \rho_0 \, \frac{\dif}{\dif t} v(x,t)
+        \\
+        \frac{\dif}{\dif t} \rho(x,t) &= - \rho_0 \, \frac{\dif}{\dif x} v(x,t)
+        \\
+        p(x,t) &= c^2\,\rho(x,t)
+    \end{aligned}
+    \right.
+\end{equation*}
+
+Derivando las dos primeras ecuaciones:
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        \frac{\dif^2}{\dif x^2} p(x,t) &= - \rho_0 \, \frac{\dif}{\dif x} \frac{\dif}{\dif t} v(x,t)
+        \\
+        \frac{\dif^2}{\dif t^2} \rho(x,t) &= - \rho_0 \, \frac{\dif}{\dif t} \frac{\dif}{\dif x} v(x,t)
+        \\
+        p(x,t) &= c^2\,\rho(x,t)
+    \end{aligned}
+    \right.
+\end{equation*}
+
+Y reemplazando la tercer ecuación en la segunda se infiere la ecuación de onda en una dimensión:
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        \frac{\dif^2}{\dif x^2} p(x,t) &= - \rho_0 \, \frac{\dif}{\dif x} \frac{\dif}{\dif t} v(x,t)
+        \\
+        \frac{\dif^2}{\dif t^2} \frac{p(x,t)}{c^2} &= - \rho_0 \, \frac{\dif}{\dif t} \frac{\dif}{\dif x} v(x,t)
+    \end{aligned}
+    \right.
+\end{equation*}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:soundWave1D}
+    \end{defn}
+    \cusTi{Ecuación de onda en 1D}
+    \begin{equation*}
+        \frac{\dif^2 p}{\dif t^2} - c^2 \, \frac{\dif^2 p}{\dif x^2} = 0
+    \end{equation*}
+\end{mdframed}
+
+
+\subsection{Ecuación de onda en 3D}
+
+El planteo en 3D es similar al caso de 1D, con la salvedad que la velocidad es una magnitud vectorial y que $\Delta y \, \Delta z$ no es constante.
+
+A partir de la ecuación \ref{eqn:momentumDelta} se plantea la conservación del momento.
+\begin{align*}
+    - \Delta p_1 \, \Delta y \, \Delta z
+    &=
+    \Delta V \, \frac{\dif \left( \rho_1 \, \Vec{v}_1 \right)}{\dif t}
+    \\
+    - \iint_S p_1 \cdot \versor{n} \, \dif S
+    &= \iiint_V \frac{\dif \left( \rho_1 \, \Vec{v}_1 \right)}{\dif t} \dif V
+\end{align*}
+
+Aplicando el teorema de Gauss a la integral de superficie del miembro izquierdo de la ecuación:
+\begin{gather}
+    - \iiint_V \grad \cdot p_1 \, \dif V
+    =
+    \iiint_V \frac{\dif \left( \rho_1 \, \Vec{v}_1 \right)}{\dif t} \dif V
+    \notag\\
+    \frac{\dif \left( \rho_1 \, \Vec{v}_1 \right)}{\dif t} + \grad \cdot p_1 = 0
+    \label{eqn:momentum3D}
+\end{gather}
+
+% La presión es una magnitud escalar. La integral de superficie requiere de un campo vectorial.
+
+Multiplicando por $\Delta x$ en ambos miembros de la ecuación \ref{eqn:massDelta} se plantea la conservación de la masa.
+\begin{align*}
+    \frac{\Delta \left( \rho_1 \, \Delta V \right)}{\Delta t}
+    &=
+    -\Delta \left( \rho_1 \, \Vec{v_1} \, \Delta y \, \Delta z \right)
+    \\
+    \iiint_V \frac{\dif \rho_1}{\dif t} \, \dif V
+    &=
+    - \iint_S \rho_1 \, \Vec{v}_1 \cdot \versor{n} \, \dif S
+\end{align*}
+
+Aplicando el teorema de Gauss a la integral de superficie del miembro derecho de la ecuación:
+\begin{gather}
+    \iiint_V \frac{\dif \rho_1}{\dif t} \, \dif V
+    =
+    - \iiint_V \grad \cdot \left( \rho_1 \, \Vec{v_1} \right) \dif V
+    \notag\\
+    \frac{\dif \rho_1}{\dif t} + \grad \cdot \left( \rho_1 \, \Vec{v_1} \right) = 0
+    \label{eqn:mass3D}
+\end{gather}
+
+Las ecuaciones \ref{eqn:momentum3D} y \ref{eqn:mass3D} linealizadas quedan dadas respectivamente por:
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        \rho_0 \, \frac{\dif \Vec{v}_1}{\dif t} + \grad \cdot p &= 0
+        \\
+        \frac{\dif \rho}{\dif t} + \rho_0 \, \grad \cdot \Vec{v} &= 0
+    \end{aligned}
+    \right.
+\end{equation*}
+
+En el sistema anterior se considera una tercera ecuación, dada por la propiedad \ref{prop:linearAcoustics}, que surge de las hipótesis de la acústica lineal.
+
+Siguiendo un procedimiento similar al caso unidimensional, se obtiene la ecuación de onda en tres dimensiones al despejar el sistema.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:soundWave3D}
+    \end{defn}
+    \cusTi{Ecuación de onda en 3D}
+    \begin{equation*}
+        \ddot{p} - c^2 \, \grad^2 p = 0
+    \end{equation*}
+\end{mdframed}
+
+A partir del laplaciano de presión para coordenadas esféricas surge la ecuación de onda tridimensional dada en función de la distancia $r$ a la fuente.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:soundWaveSpherical}
+    \end{defn}
+    \cusTi{Ecuación de onda esférica}
+    \begin{equation*}
+        \frac{\partial^2 (rp)}{\partial t^2} - c^2 \frac{\partial^2 (rp)}{\partial r^2} = 0
+    \end{equation*}
+\end{mdframed}
+
+\section{Soluciones a la ecuación de onda}
+
+La ecuación de onda determina cómo varía la presión en el espacio y conforme transcurre el tiempo.
+Las soluciones son, por lo tanto, campos escalares de presión $p:\setR^n\to\setR$ donde $n=2$ en el caso de ondas planas que se propaguen en una dimensión espacial y una temporal; O bien $n=4$ en el caso de ondas esféricas que se propaguen en tres dimensiones espaciales y una temporal.
+
+La solución general a la ecuación de onda en una dimensión está dada por la suma de dos funciones cualesquiera cuyo argumento sea $t-\tfrac{x}{c}$ y $t+\tfrac{x}{c}$ respectivamente.
+La función de argumento $t-\tfrac{x}{c}$ determina la propagación de la onda en el sentido positivo y la función de argumento $t+\tfrac{x}{c}$ lo hace en el sentido negativo.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Solución general en 1D}
+    \begin{equation*}
+        p(x,t) = f_1 \left( t - \frac{x}{c} \right) + f_2 \left( t + \frac{x}{c} \right)
+    \end{equation*}
+\end{mdframed}
+
+Particularmente podemos representar ondas periódicas restringiendo la solución general funciones armónicas de la siguiente manera.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:waveFunction1D}
+    \end{defn}
+    \cusTi{Solución periódica en 1D}
+    \begin{equation*}
+        p(x,t) = A \, e^{\iu \omega \left( t - \frac{x}{c}\right)} + B \, e^{\iu \omega \left( t + \frac{x}{c}\right)}
+    \end{equation*}
+\end{mdframed}
+
+Una onda en tres dimensiones cuyo frente de onda se propague de forma esférica (Def. \ref{defn:soundWaveSpherical}) puede ser representada por una única variable espacial.
+Las ondas esféricas solo dependen de la distancia $r$ a la fuente, ya que no hay variación de presión en las direcciones angulares.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:sphericalWaveFunction}
+    \end{defn}
+    \cusTi{Solución periódica para onda esférica}
+    \begin{equation*}
+        p(r,t) = \frac{A}{r} \, e^{\iu \omega \left( t - \frac{r}{c}\right)} + \frac{B}{r} \, e^{\iu \omega \left( t + \frac{r}{c}\right)}
+    \end{equation*}
+\end{mdframed}
+
+\section{Ecuación de Helmholtz}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Coeficiente de reflexión}
+    \begin{equation*}
+        R=\frac{B}{A}
+    \end{equation*}
+\end{mdframed}
+
+Dado el número de onda $k=\tfrac{\omega}{c}$ podemos disociar la función de onda (Def. \ref{defn:waveFunction1D}) en espacio y tiempo.
+\begin{align*}
+    p(x,t) &= A \left[ e^{\iu \omega \left( t - \frac{x}{c}\right)} + R \, e^{\iu \omega \left( t + \frac{x}{c}\right)} \right]
+    \\
+    &= A \left( e^{\iu \omega t} \, e^{-\iu \frac{\omega}{c} x} + R \, e^{\iu \omega t} \, e^{\iu \frac{\omega}{c} x} \right)
+    \\
+    &= A \left( e^{-\iu \frac{\omega}{c} x} + R \, e^{\iu \frac{\omega}{c} x} \right) e^{\iu \omega t}
+    \\
+    &= A \left( e^{-\iu k x} + R \, e^{\iu k x} \right) e^{\iu \omega t}
+\end{align*}
+
+Sean:
+\begin{gather}
+    p(x) = A \left( e^{-\iu k x} + R \, e^{\iu k x} \right)
+    \label{eqn:Helmholtz}
+    \\
+    p(t) = e^{\iu \omega t}
+\end{gather}
+
+Pudiendo escribir:
+\begin{equation*}
+    p(x,t) = p(x) \, p(t)
+\end{equation*}
+
+Y dado que $p(x,t)$ es solución de la ecuación de onda (Def. \ref{defn:soundWave1D}) entonces $p(x) \, p(t)$ también lo es:
+\begin{gather*}
+    \frac{\dif^2}{\dif x^2} \left[ p(x) \, p(t) \right] - \frac{1}{c^2} \, \frac{\dif^2}{\dif t^2} \left[ p(x) \, p(t) \right] = 0
+    \\
+    \frac{\dif^2 p(x)}{\dif x^2} \, p(t) - \frac{1}{c^2} \, \frac{\dif^2 p(t)}{\dif t^2} p(x) = 0
+\end{gather*}
+
+Luego, desarrollando la derivada:
+\begin{equation*}
+    \frac{\dif^2 p(t)}{\dif t^2} = \omega^2 \, \iu^2 \, e^{\iu \omega t} = - \omega^2 \, p(t)
+\end{equation*}
+
+Se obtiene:
+\begin{equation*}
+    \frac{\dif^2 p(x)}{\dif x^2} \, p(t) + \frac{\omega^2}{c^2} \, p(t) \, p(x) = 0
+\end{equation*}
+
+Y al dividir $p(t)$ se infiere:
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:Helmholtz1D}
+    \end{defn}
+    \cusTi{Ecuación de Helmholtz en 1D}
+    \begin{equation*}
+        \frac{\dif^2 p(x)}{\dif x^2} + k^2 \, p(x) = 0
+    \end{equation*}
+    Donde $k=\frac{\omega}{c}$ es el número de onda.
+\end{mdframed}
+
+Cuya solución está dada por la ecuación \ref{eqn:Helmholtz} definida anteriormente.
+
+Se puede demostrar que la equivalente a la ecuación de Helmholtz en una dimensión está dada para las tres dimensiones cartesianas por:
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:Helmholtz3D}
+    \end{defn}
+    \cusTi{Ecuación de Helmholtz en 3D}
+    \begin{equation*}
+        \grad^2 p(\Vec{x}) + k^2 \, p(\Vec{x}) = 0
+    \end{equation*}
+\end{mdframed}
+
+Y a su vez en coordenadas esféricas a partir del laplaciano de presión.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:HelmholtzSpheric}
+    \end{defn}
+    \cusTi{Ecuación de Helmholtz en esféricas}
+    \begin{equation*}
+        \frac{\partial^2 (rp)}{\partial r^2} + k^2(rp) = 0
+    \end{equation*}
+\end{mdframed}
+
+Cuya solución se obtiene al disociar en espacio y tiempo la función de onda esférica (Def. \ref{defn:sphericalWaveFunction}) siguiendo un razonamiento similar al caso unidimensional.
+\begin{equation*}
+    p(x) = \frac{A}{r} \left( e^{-\iu k x} + R \, e^{\iu k x} \right)
+\end{equation*}
+
+
+\section{Velocidad de partículas}
+
+Así como la ecuación de Helmholtz y sus soluciones determinan la variación espacial de la presión independientemente del tiempo, se pretende definir la velocidad particular $v$ de igual manera.
+\begin{gather*}
+    v(x,t) = v(t) \, v(x) = e^{\iu \omega t} \, v(x)
+    \\
+    \frac{\partial}{\partial t} v(x,t) = \iu \omega \, e^{\iu \omega t} \, v(x)
+\end{gather*}
+
+Según la ecuación de Euler (Ec. \ref{eqn:EulerMomentumConservation}) se tiene que la derivada de la velocidad en función del tiempo es:
+\begin{align*}
+    \frac{\partial}{\partial t} v(x,t) &= - \frac{1}{\rho_0} \, \frac{\partial}{\partial x} p(x,t)
+    \\
+    &= - \frac{1}{\rho_0} \, \frac{\partial p(x)}{\partial x} \, p(t)
+    \\
+    &= - \frac{1}{\rho_0} \, \frac{\partial p(x)}{\partial x} \, e^{\iu \omega t}
+\end{align*}
+
+Y al igualar ambas derivadas se tiene:
+\begin{align*}
+    \iu \omega \, e^{\iu \omega t} \, v(x) &= - \frac{1}{\rho_0} \, \frac{\partial p(x)}{\partial x} \, e^{\iu \omega t}
+    \\
+    v(x) &= - \frac{1}{\iu \omega \rho_0} \, \frac{\partial p(x)}{\partial x}
+\end{align*}
+
+Obteniendo para $\omega=c\,k$ la siguiente expresión para la velocidad de las partículas en función de $x$:
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:particlesVelocity}
+    \end{defn}
+    \cusTi{Velocidad particular}
+    \begin{equation*}
+        v(x) = \frac{\iu}{\rho_0 \, c \, k} \, \frac{\partial p(x)}{\partial x}
+    \end{equation*}
+\end{mdframed}
+
+\section{Velocidad de propagación y densidad}
+
+La velocidad de propagación de la onda en un medio dado, se relaciona con la longitud de onda ($\lambda$), el número de onda ($k$), la frecuencia ($f$), el período ($T$) y la frecuencia angular ($\omega$) de la siguiente manera:
+\begin{equation*}
+    \lambda = \frac{2 \pi}{k} = \frac{2 \pi}{\omega/c} = \frac{c}{f} = c \, T
+\end{equation*}
+
+La velocidad de propagación del sonido depende de la temperatura del medio.
+\begin{equation*} % ¿De dónde sale esto?
+    c = 331 + 0.607 \, T
+\end{equation*}
+
+Con $T$ dado en $\si{\celsius}$
+
+La densidad del medio en el que se propaga una onda de sonido puede ser calculada a partir de la ecuación general de los gases ideales.
+\begin{gather*}
+    p \, V = n \, R_G \, T
+    \\
+    p \, V = \frac{m}{M} \, R_G \, T
+    \\
+    \frac{m}{V} = \frac{p \, M}{R_G \, T}
+\end{gather*}
+
+De modo que la densidad del aire es:
+\begin{equation*}
+    \rho_0 = \frac{p_0 \, M}{R_G \, T} \approx 1.2\,\si{\kilo\gram\per\metre^3}
+\end{equation*}
+
+Donde:
+\begin{align*}
+    & p_0 = 1\,\si{\atmosphere} \quad\text{es la presión atmosférica.}
+    \\
+    & M = 28.9645\,\si{\kilo\gram\per\mol} \quad\text{es la masa molar del aire.}
+    \\
+    & R_G = 0.08206\,\si{\atmosphere\litre\per\mol\per\kelvin} \quad\text{es la cst. de los gases.}
+    \\
+    & T = (273.15+20)\,\si{\kelvin} \quad\text{es la temperatura ambiente.}
+\end{align*}
+
+
+\section{Impedancia acústica}
+
+Según la definición \ref{defn:sound}, estudiar el sonido implica modelar matemáticamente la presión y la velocidad de las partículas como funciones periódicas.
+
+La relación entre la presión $p(t)$ y la velocidad particular $v(t)$ es conocida como impedancia acústica.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:impedance}
+    \end{defn}
+    \cusTi{Impedancia acústica}
+    \cusTe{La impedancia acústica es la oposición a la propagación de una onda sonora en un medio.}
+    \begin{equation*}
+        Z \left(\Vec{x},t\right) = \frac{p \left(\Vec{x},t\right)}{v \left(\Vec{x},t\right)}
+    \end{equation*}
+\end{mdframed}
+
+
+\subsection*{Impedancia en 1D}
+
+La impedancia en una dimensión es:
+\begin{equation*}
+    Z(x) = \frac{p(x)}{v(x)}
+\end{equation*}
+
+Donde $p(x)$ es la presión, dada por la solución de la ecuación de Helmholtz en una dimensión (Def. \ref{defn:Helmholtz1D}):
+\begin{equation*}
+    p(x) = A \left( e^{-\iu k x} + R \, e^{\iu k x} \right)
+\end{equation*}
+
+Y $v(x)$ es la velocidad particular (Def. \ref{defn:particlesVelocity}):
+\begin{align}
+    v(x) &= \frac{\iu A}{\rho_0 \, c \, k} \, \left( -\iu k \, e^{-\iu k x} + \iu k \, R \, e^{\iu k x} \right)
+    \notag
+    \\
+    &= \frac{A}{\rho_0 \, c} \left( e^{-\iu k x} - R \, e^{\iu k x} \right)
+    \label{eqn:particleVel1D}
+\end{align}
+
+Obteniendo:
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Impedancia acústica en 1D}
+    \cusTe{Si $0 \leq R \leq 1$ entonces:}
+    \begin{equation*}
+        Z(x) = \rho_0 \, c \, \frac{e^{-\iu k x} + R \, e^{\iu k x}}{e^{-\iu k x} - R \, e^{\iu k x}}
+    \end{equation*}
+    \cusTe{Si $R=1$ entonces:}
+    \begin{equation*}
+        Z(x) = \rho_0 \, c \, \frac{2 \cos(kx)}{-2 \iu \sin (kx)} = \iu \, \rho_0 \, c \, \tan^{-1}(kx)
+    \end{equation*}
+    \cusTe{Si $R=0$ entonces:}
+    \begin{equation*}
+        Z(x) = \rho_0 \, c
+    \end{equation*}
+\end{mdframed}
+
+
+\subsection*{Impedancia en 3D}
+
+Para una onda esférica en campo libre el coeficiente de reflexión es $R=0$.
+Por lo tanto, la presión está dada según la ecuación de Helmholtz en coordenadas esféricas (Def. \ref{defn:HelmholtzSpheric}) por:
+\begin{equation}
+    p(r) = A \, \frac{e^{-\iu k r}}{r}
+    \label{eqn:p(r)}
+\end{equation}
+
+Y la velocidad de las partículas está dada según la derivada de la presión (Def. \ref{defn:particlesVelocity}) como sigue:
+\begin{align}
+    v(r) &= \frac{\iu}{\rho_0 \, c \, k} \frac{\partial p(r)}{\partial r}
+    \notag
+    \\
+    &= \frac{\iu \, A}{\rho_0 \, c \, k} \left( \frac{- \iu k}{r} \, e^{- \iu k r} - r^{-2} \, e^{- \iu k r} \right)
+    \notag
+    \\
+    &= \frac{A}{\rho_0 \, c} \left( \frac{e^{- \iu k r}}{r} - \iu \, \frac{e^{- \iu k r}}{k \, r^2} \right)
+    \notag
+    \\
+    &= \frac{A}{\rho_0 \, c} \, \frac{e^{- \iu k r}}{r} \left( 1 - \frac{\iu}{k \, r} \right)
+    \label{eqn:v(r)}
+\end{align}
+
+Con lo cual, la impedancia acústica queda dada por:
+\begin{align}
+    Z(r) &= \frac{p(r)}{v(r)}
+    \notag
+    \\
+    &= \frac{\rho_0 \, c}{1 - \dfrac{\iu}{k \, r}}
+    \label{eqn:impedance3D}
+\end{align}
+
+Pudiendo separar la parte real de la imaginaria:
+\begin{align*}
+    Z(r) &= \frac{\rho_0 \, c}{1 - \frac{\iu}{k \, r}} \, \frac{1+\frac{\iu}{k \, r}}{1+\frac{\iu}{k \, r}}
+    \\
+    &= \frac{\rho_0 \, c \left( 1+\frac{\iu}{k \, r} \right)}{1^2-\left(\frac{\iu}{k \, r}\right)^2}
+    \\
+    &= \frac{\rho_0 \, c \left( 1+\frac{\iu}{k \, r} \right)}{1+\frac{1}{(k \, r)^2}}
+    \\
+    &= \rho_0 \, c \left[ \frac{1}{1+\frac{1}{(k \, r)^2}} + \iu \, \frac{\frac{1}{k \, r}}{1+\frac{1}{(k \, r)^2}} \right]
+\end{align*}
+
+O bien, multiplicando y dividiendo por $(k\,r)^2$ queda:
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Impedancia acústica en 3D}
+    \begin{align*}
+        Z(r) &= \Re(Z) + \iu \, \Im(Z)
+        \\
+        &= \rho_0 \, c \left[ \frac{(k \, r)^2}{(k \, r)^2+1} + \iu \, \frac{k \, r}{(k \, r)^2+1} \right]
+    \end{align*}
+\end{mdframed}
+
+El término $k \, r$ determina si un punto a cierta distancia $r$ está en campo cercano o campo lejano, dependiendo de la frecuencia de la onda.
+Al graficar $\Re(Z)$ y $\Im(Z)$ se puede observar que el número complejo $Z$ tiene mayor preponderancia en su componente real para valores de $k \, r$ altos, mientras que la componente imaginaria influye en mayor medida para valores de $k \, r$ bajos.
+
+\begin{center}
+    \def\svgwidth{0.8\linewidth}
+    \input{./images/imped.pdf_tex}
+\end{center}
+
+A partir de la ecuación \ref{eqn:impedance3D} podemos hacer un análisis similar para el módulo de la impedancia.
+Observar que $|Z|$ tiende a ser $\rho_0 \, c$ para valores de $k \, r$ altos.
+\begin{equation*}
+    \norm{Z(r)} = \frac{\rho_0 \, c}{\norm{1+\iu \, \dfrac{-1}{k \, r}}}
+\end{equation*}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Módulo de la impedancia en 3D}
+    \begin{equation*}
+        \norm{Z(r)} = \frac{\rho_0 \, c}{\sqrt{1+\dfrac{1}{(k \, r)^2}}}
+    \end{equation*}
+\end{mdframed}
+
+\begin{center}
+    \def\svgwidth{0.8\linewidth}
+    \input{./images/imped-abs.pdf_tex}
+\end{center}
+
+
+\subsection{Efecto de proximidad}
+
+El efecto de proximidad consiste en la disminución de la impedancia en torno a una fuente de sonido.
+Se manifiesta por ejemplo en un realce de las frecuencias bajas captado por los micrófonos al posicionarlos cerca de una fuente.
+
+Vemos que $Z \to 0$ cuando $v \to \infty$ independientemente de la presión.
+Y esto se pone en evidencia tomando el valor eficaz para la presión y la velocidad de partículas de ondas esféricas, a partir de las ecuaciones \ref{eqn:p(r)} y \ref{eqn:v(r)} respectivamente.
+\begin{align*}
+    \rms{p}^2 &= \frac{\norm{p(r)}^2}{2}
+    \\
+    &= \frac{A^2}{2\,r^2}
+\end{align*}
+\begin{align*}
+    \rms{v}^2 &= \frac{\norm{v(r)}^2}{2}
+    \\
+    &= \frac{A^2}{2\left(\rho_0 \, c \, r\right)^2} \left[ 1 + \frac{1}{(kr)^2} \right]
+    \\
+    &= \frac{A^2}{2\left(\rho_0 \, c \right)^2 r^2} + \frac{A^2}{2\left(\rho_0 \, c \right)^2 k^2 \, r^4}
+\end{align*}
+
+Para valores de frecuencia altos donde $k\to\infty$ el sumando en la velocidad se anula, pero para bajas frecuencias no es despreciable y para $r\to 0$ la velocidad de las partículas crece con mayor orden que la presión.
+
+
+\section{Intensidad acústica}
+
+La potencia es la cantidad de energía por unidad de tiempo.
+En el caso de una fuente sonora, refiere a la energía radiada en forma de ondas sonoras.
+Se define como sigue:
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Potencia acústica}
+    \cusTe{Flujo del campo vectorial de intensidad sobre una superficie Gaussiana que encierra la fuente sonora.}
+    \begin{equation*}
+        W = \iint_S \Vec{I} \cdot \dif\Vec{S}
+    \end{equation*}
+\end{mdframed}
+
+Si la radiación es esférica, la intensidad es de módulo constante para cualquier punto de una porción de superficie.
+La integral que queda, es el área de la porción de superficie.
+
+En tal caso, la intensidad acústica se puede definir en función de la potencia de la fuente y la superficie de radiación:
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:I}
+    \end{defn}
+    \cusTi{Intensidad acústica}
+    \cusTe{Potencia por unidad de superficie.}
+    \begin{equation*}
+        I = \frac{W}{S}
+    \end{equation*}
+\end{mdframed}
+
+Partiendo de la definición \ref{defn:I}, se plantea para la intensidad acústica:
+\begin{align*}
+    \Delta I &= \frac{\Delta W}{S}
+    \\
+    &= \frac{\Delta \sub{E}{mec}}{S \, \Delta t}
+    \\
+    &= \frac{\Delta \sub{E}{mec}}{\Delta t \, V} \, \frac{V}{S}
+    \\
+    &= \frac{\Delta \sub{E}{mec}}{\Delta t \, V} \, \Delta x
+    \\
+    \frac{\Delta I}{\Delta x} &= \frac{\Delta \sub{E}{mec}}{\Delta t \, V}
+\end{align*}
+
+Tomando el límite cuando $\Delta t \to 0$ queda definida la densidad de energía mecánica $\rho_E=\sub{E}{mec}/V$ que es la energía mecánica por unidad de volumen:
+\begin{equation}
+    \frac{\dif I}{\dif x} = \frac{\dif \sub{E}{mec}}{\dif t \, V} = \frac{\dif \rho_E}{\dif t}
+    \label{eqn:energyDensityI}
+\end{equation}
+
+A continuación se procede a calcular una equivalencia para la derivada de la densidad de energía, para deducir así la intensidad de manera indirecta.
+
+Multiplicando por $v$ a ambos miembros de la ecuación de Euler (Ec. \ref{eqn:EulerMomentumConservation}) de la conservación del momento se obtiene:
+\begin{equation*}
+    \frac{\dif p}{\dif x} v = - \rho_0 \, \frac{\dif v}{\dif t} \, v
+\end{equation*}
+
+El miembro izquierdo de la ecuación anterior se puede expresar a partir de la derivada del producto $(pv)'=p'v+pv'$ al despejar $(pv)'-pv'=p'v$ quedando:
+\begin{equation*}
+    \frac{\dif (pv)}{\dif x} - p \, \frac{\dif v}{\dif x} = - \rho_0 \, \frac{\dif v}{\dif t} \, v
+\end{equation*}
+
+A partir de la ecuación \ref{eqn:EulerMassConservation} de la conservación de la masa y por la propiedad \ref{prop:linearAcoustics} de la acústica lineal, podemos expresar la derivada espacial de la velocidad de las partículas como $\tfrac{\dif v}{\dif x} = - \tfrac{1}{\rho_0 \, c^2} \tfrac{\dif p}{\dif t}$ de manera que:
+\begin{equation*}
+    \frac{\dif (pv)}{\dif x} + \frac{p}{\rho_0 \, c^2} \frac{\dif p}{\dif t} = - \rho_0 \, \frac{\dif v}{\dif t} \, v
+\end{equation*}
+
+Por regla de la cadena para cualquier función $f$ se tiene que $(f^2)'=2f \, f'$ por lo que en la ecuación anterior $p \, p'$ se puede expresar como $(p^2)'/2$ y análogamente $v \, v'$ como $(v^2)'/2$, obteniendo:
+\begin{equation*}
+    \frac{\dif (pv)}{\dif x} + \frac{1}{2 \, \rho_0 \, c^2} \frac{\dif p^2}{\dif t} = - \frac{\rho_0}{2} \, \frac{\dif v^2}{\dif t}
+\end{equation*}
+
+Al reagrupar los términos, queda definida la densidad de energía mecánica $\rho_E=\sub{E}{mec}/V$ según:
+\begin{equation*}
+    \frac{\dif (pv)}{\dif x} + \frac{\dif}{\dif t}  \underbrace{\left( \frac{p^2}{2 \, \rho_0 \, c^2} + \frac{\rho_0 \, v^2}{2} \right)}_{\rho_E}  = 0
+\end{equation*}
+
+Donde la energía cinética es $\sub{E}{cin} = \tfrac{\rho_0 \, v^2 \, V}{2}$ y la energía potencial $\sub{E}{pot} = \int_{V_0}^V p \, \dif V = \tfrac{p^2 \, V}{2 \, \rho_0 \, c^2}$ de modo que:
+\begin{equation}
+    \frac{\dif (pv)}{\dif x} + \frac{\dif \rho_E}{\dif t} = 0
+    \label{eqn:energyDensityPv}
+\end{equation}
+
+% ¡Falta un signo menos!
+
+Reemplazando la ecuación \ref{eqn:energyDensityPv} en la ecuación \ref{eqn:energyDensityI} se obtiene, finalmente:
+\begin{align*}
+    \frac{\dif I}{\dif x} &= \frac{\dif (pv)}{\dif x}
+    \\
+    \dif I &= \dif (pv)
+    \\
+    \int \dif I &= \int \dif (pv)
+    \\
+    I &= pv
+\end{align*}
+
+% ¿Cómo pasa de ser un escalar a ser vector?
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Vector intensidad}
+    \begin{equation*}
+        \Vec{i}(x,t) = p(x,t) \, \Vec{v}(x,t)
+    \end{equation*}
+\end{mdframed}
+
+% Hay un error en la página 108 del apunte, i(t) no debería estar al cuadrado.
+
+Donde $\norm{\Vec{i}(x,t)}=i(x,t)$ puede ser escrito como:
+\begin{align*}
+    i(x,t) &= p(x,t) \, v(x,t)
+    \\
+    &= \Re \left[ p(x) \, e^{\iu \omega t} \right] \, \Re \left[ v(x) \, e^{\iu \omega t} \right]
+\end{align*}
+
+O bien, aplicando la propiedad $2\,\Re(z)=z+\overline{z}$, como:
+\begin{align*}
+    &= \frac{p(x) \, e^{\iu \omega t} + \overline{p}(x) \, e^{-\iu \omega t}}{2} \, \frac{v(x) \, e^{\iu \omega t}+ \overline{v}(x) \, e^{-\iu \omega t}}{2}
+    \\
+    &= \frac{p(x)\,v(x)\,e^{2\iu\omega t}}{4} 
+    + \frac{p(x)\,\overline{v}(x)}{4}
+    + \frac{\overline{p}(x)\,v(x)}{4}
+    + \frac{\overline{p}(x)\,\overline{v}(x)}{4\,e^{2\iu\omega t}}
+\end{align*}
+
+La intensidad media está definida por la integral:
+\begin{equation*}
+    \ave{I} = \frac{1}{T} \int_0^T i(x,t)\,\dif t
+\end{equation*}
+
+Al integrar $i(x,t)$ en un período, se anulan el primer y cuarto sumando:
+\begin{equation*}
+    \ave{I} = \frac{1}{T} \int_0^T \frac{p(x)\,\overline{v}(x)+\overline{p}(x)\,v(x)}{4} \,\dif t
+\end{equation*}
+
+Haciendo uso de la propiedad $z\,\overline{w}=\overline{\overline{z}\,w}$, se tiene:
+\begin{equation*}
+    \ave{I} = \frac{1}{T} \int_0^T \frac{p(x)\,\overline{v}(x)+\overline{p(x)\,\overline{v}(x)}}{4} \,\dif t
+\end{equation*}
+
+Y usando nuevamente $z+\overline{z}=2\,\Re(z)$ se tiene:
+\begin{align*}
+    \ave{I} &= \frac{1}{T} \int_0^T \frac{2 \, \Re \left[ p(x)\,\overline{v}(x) \right]}{4} \,\dif t
+    \\
+    &= \frac{\Re \left[ p(x)\,\overline{v}(x) \right]}{2T} \underbrace{\int_0^T \dif t}_{=T}
+\end{align*}
+
+Obteniendo así la siguiente definición para la intensidad que puede ser extrapolada a notación vectorial para la velocidad.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+        \label{prop:aveI}
+    \end{prop}
+    \cusTi{Intensidad media}
+    \begin{equation*}
+        \ave{I} = \frac{\Re \left[ p(x)\,\overline{v}(x) \right]}{2}
+    \end{equation*}
+\end{mdframed}
+
+\section{Directividad} % Falta terminar
+
+La restricción espacial que afecta la radiación esférica de la fuente se conoce como coeficiente de directividad $Q$.
+En la figura a continuación sea muestran los valores que tomaría $Q$ para una fuente esférica ubicada en una esquina, al pié de una pared o contra el piso.
+
+\begin{center}
+    \def\svgwidth{0.6\linewidth}
+    \input{./images/q.pdf_tex}
+\end{center}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Índice de directividad}
+    \begin{equation*}
+        D_I = 10 \log (Q)
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Modelo de esfera pulsante}
+
+Una fuente pulsante monopolar impone una velocidad de partículas en dirección radial, generando un frente de onda esférico.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:Q_v}
+    \end{defn}
+    \cusTi{Caudal de velocidad particular}
+    \begin{equation*}
+        Q_v = S\,v(r)
+    \end{equation*}
+\end{mdframed}
+
+El caudal de velocidad $Q_v$ que produzca una esfera pulsante de radio $a$ es:
+\begin{equation*}
+    Q_v = 4\pi a^2 \, v(a)
+\end{equation*}
+
+Donde $v(r)$ es la velocidad de partículas que impone la esfera pulsante sobre su superficie.
+Evaluando $r=a$ en la ecuación \ref{eqn:v(r)} podemos escribir el caudal de velocidad como:
+\begin{equation*}
+    Q_v = 4\pi a^2 \, \frac{A}{\rho_0 \, c} \, \frac{e^{- \iu k a}}{a} \left( 1 - \frac{\iu}{k \, a} \right)
+\end{equation*}
+
+Resolviendo para $A$ se tiene:
+\begin{align*}
+    A &=  \frac{Q_v \, \rho_0 \, c}{4\pi a} \, \frac{e^{\iu k a}}{1 - \frac{\iu}{k \, a}}
+    \\
+    &= \frac{Q_v \, \rho_0 \, c}{4\pi a} \, \frac{e^{\iu k a}}{\tfrac{\iu k a + 1}{\iu k a}}
+    \\
+    &= \frac{Q_v \, \rho_0 \, c}{4\pi a} \, \frac{e^{\iu k a}}{\iu k a + 1} \, \frac{\iu \omega a}{c}
+    \\
+    &= \frac{\iu \omega \, Q_v \, \rho_0 }{4\pi} \, \frac{e^{\iu k a}}{1+\iu ka}
+\end{align*}
+
+Reemplazar esta amplitud calculada en la ecuación \ref{eqn:p(r)} permite definir la presión que genera la fuente en función de la distancia $r$ al centro de la esfera.
+\begin{equation*}
+    p(r) = \frac{\iu \omega \, Q_v \, \rho_0 }{4\pi} \, \frac{1}{1+\iu k a} \, \frac{e^{-\iu k (r-a)}}{r}
+\end{equation*}
+
+Considerar como hipótesis que $ka<<1$ supone que la fuente sea puntual, obteniendo para la presión:
+\begin{equation}
+    p(r) = \frac{\iu \omega \, Q_v \, \rho_0 }{4\pi} \, \frac{e^{-\iu k (r-a)}}{r}
+    \label{eqn:p(r)withA}
+\end{equation}
+
+A partir de la definición \ref{defn:particlesVelocity}, al derivar la presión obtenida anteriormente, podemos determinar la velocidad de partículas que genera la fuente en función de la distancia $r$ al centro de la esfera.
+\begin{align*}
+    v(r) &= \frac{\iu}{\rho_0 \, c \, k } \, \frac{\dif p(r)}{\dif r}
+    \\
+    &= \frac{\iu}{\rho_0 \, c \, k } \, \frac{\iu \omega \, Q_v \, \rho_0 }{4\pi} \, \frac{\dif}{\dif r} \left[ \frac{e^{-\iu k (r-a)}}{r} \right]
+    \\
+    &= - \frac{Q_v}{4\pi} \, \frac{\dif}{\dif r} \left[ \frac{e^{-\iu k (r-a)}}{r} \right]
+    \\
+    &= - \frac{Q_v}{4\pi} \left[ -\iu k \frac{e^{-\iu k (r-a)}}{r} - \frac{e^{-\iu k (r-a)}}{r^2} \right]
+    \\
+    &= \frac{Q_v}{4\pi} \, \frac{e^{-\iu k (r-a)}}{r} \left( \frac{1}{r} + \iu k \right)
+\end{align*}
+
+Y su conjugado:
+\begin{equation*}
+    \overline{v}(r) = \frac{Q_v}{4\pi} \, \frac{e^{\iu k (r-a)}}{r} \left( \frac{1}{r} - \iu k \right)
+\end{equation*}
+
+De manera que el producto $p(r)\,\overline{v}(r)$ queda:
+\begin{align*}
+    p(r)\,\overline{v}(r) &= \frac{\iu \omega \, Q_v \, \rho_0 }{4\pi} \, \frac{e^{-\iu k (r-a)}}{r} \, \frac{Q_v}{4\pi} \, \frac{e^{\iu k (r-a)}}{r} \left( \frac{1}{r} - \iu k \right)
+    \\
+    &= \left(\frac{Q_v}{4\pi r}\right)^2 \left( \frac{\iu \, \omega \, \rho_0}{r} + \omega \, \rho_0 \, k \right)
+    \\
+    &= \left(\frac{Q_v}{4\pi r}\right)^2 \left( \frac{\omega^2 \, \rho_0}{c} + \iu \, \frac{\omega \, \rho_0}{r} \right)
+\end{align*}
+
+Tomando la parte real del producto anterior se obtiene, a partir de la propiedad \ref{prop:aveI}, la siguiente expresión para la intensidad:
+\begin{align*}
+    I &= \frac{\Re \left[ p(r)\,\overline{v}(r) \right]}{2}
+    \\
+    &= \left(\frac{Q_v}{4\pi r}\right)^2 \frac{\omega^2 \, \rho_0}{2c}
+\end{align*}
+
+La intensidad fue definida como la potencia por unidad de superficie (Def. \ref{defn:I}) luego $W=I\,S=I\,4\pi r^2$ pudiendo definir la potencia acústica al reemplazar la intensidad según:
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Potencia de fuente esférica puntual}
+    \begin{equation*}
+        W = \frac{Q_v^2 \, \rho_0 \, \omega^2}{8\pi \,c}
+    \end{equation*}
+\end{mdframed}
+
+Por otro lado, podemos tomar la presión eficaz al cuadrado a partir de la ecuación \ref{eqn:p(r)withA} obteniendo:
+\begin{align*}
+    \rms{p}^2 &= \frac{\norm{p(r)}^2}{2}
+    = \frac{1}{2} \, \norm{\frac{\iu \omega \, Q_v \, \rho_0 }{4\pi} \, \frac{e^{-\iu k (r-a)}}{r}}^2
+    \\
+    &= \frac{1}{2} \, \left(\frac{\omega \, Q_v \, \rho_0 }{4\pi r}\right)^2
+    = \frac{1}{2} \, \frac{Q_v^2 \, \rho_0 \, \omega^2}{4\pi} \, \frac{\rho_0}{4\pi r^2}
+    \\
+    &= \frac{Q_v^2 \, \rho_0 \, \omega^2}{8\pi \, c} \, \frac{\rho_0 \, c}{4\pi r^2}
+\end{align*}
+
+Es necesario agregar como hipótesis que $k\,r>>1$ para considerar que la radiación se da en campo lejano.
+Así, en la ecuación anterior, la impedancia está dada por $Z=\rho_0 \, c$ en efecto.
+Luego:
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+        \label{prop:p^2/Z=W/S}
+    \end{prop}
+    Se tiene una fuente de sonido esférica, cuyo coeficiente de reflexión es $R=0$ y coeficiente de directividad $Q=1$.
+    Sea $k\, a<<1$ pudiendo considerarse la fuente puntual.
+    Sea $k\,r>>1$ pudiendo considerarse la radiación en campo lejano.
+    Entonces se cumple:
+    \begin{equation*}
+        \frac{\rms{p}^2}{Z\,Q} = \frac{W}{S}
+    \end{equation*}
+    Donde $S=4\pi r^2$ es la superficie de radiación y $Z=\rho_0 \, c$ la impedancia característica del medio.
+\end{mdframed}
+
+Observar que cumplirse simultáneamente $k\, a<<1$ y $k\,r>>1$ implica que $r>>a$ lo cual significa que la propiedad se verifica para todas las frecuecias, por ser independiente de $k$.
+
+
+\subsection{Ley cuadrática inversa}
+\label{sec:inverseSquareLaw}
+
+Haciendo algunos despejes en la propiedad \ref{prop:p^2/Z=W/S} se puede hallar una importante simetría.
+\begin{align*}
+    \frac{\rms{p}^2}{\rho_0 \, c} &= \frac{W}{4\pi r^2}
+    \\
+    \norm{\rms{p} \, r} &= \sqrt{\frac{W \, \rho_0 \, c}{4\pi}} = \textrm{constante}
+\end{align*}
+
+Lo cual implica:
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    La presión multiplicada por la distancia es constante.
+    \begin{equation*}
+        \Delta \norm{\rms{p} \, r} = 0
+    \end{equation*}
+\end{mdframed}
+
+Pudiendo escribir:
+\begin{align*}
+    {\rms{p}}_1 \, r_1 &= {\rms{p}}_2 \, r_2
+    \\
+    \frac{{\rms{p}}_1}{{\rms{p}}_2} &= \frac{r_2}{r_1}
+    \\
+    \frac{\tfrac{{\rms{p}}_1}{\sub{p}{ref}}}{\tfrac{{\rms{p}}_2}{\sub{p}{ref}}} &= \frac{r_2}{r_1}
+    \\
+    20 \log \left( \frac{{\rms{p}}_1}{\sub{p}{ref}} \right) - 20 \log \left( \frac{{\rms{p}}_2}{\sub{p}{ref}} \right) &= 20 \log \left( \frac{r_2}{r_1} \right)
+    \\
+    \Delta L_p = 20 \log \left( \frac{r_2}{r_1} \right)
+\end{align*}
+
+Luego si la distancia $r_2$ es el doble de $r_1$ queda:
+\begin{equation*}
+    \Delta L_p = 20 \log \left( \frac{2 \, r_1}{r_1} \right) \approx 6\,\si{\deci\bel}
+\end{equation*}
+
+
+%\section{Dipolo acústico} % Falta terminar (ver unidad 4)
+
+
+%\section{Bafle infinito} % Falta terminar (ver unidad 4)
+
+
+%\section{Modelo de Line Array} % Falta terminar (ver unidad 4)
+
+
+\section{Niveles de presión, intensidad y potencia}
+
+Para estudiar las variaciones de presión, intensidad y potencia, se definen niveles en escalas logarítmicas.
+Los respectivos niveles relacionan dichas magnitudes con un valor de referencia, indicando qué tan por encima están del umbral de audición.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Presión de referencia}
+    \cusTe{Mínima presión perceptible por el oído humano.}
+    \begin{equation*}
+        \sub{p}{ref} = 20\,\si{\micro\pascal}
+    \end{equation*}
+\end{mdframed}
+
+Reemplazando $\sub{p}{ref}$ en la propiedad \ref{prop:p^2/Z=W/S} se obtiene la intensidad de referencia en el aire para ondas planas en campo lejano:
+\begin{equation*}
+    \sub{I}{ref}=\frac{(20\,\si{\micro\pascal})^2}{1.18\,\si{\kilo\gram\per\metre^2} \cdot 343\,\si{\metre\per\second}} = 10^{-12}\,\si{\watt\per\metre^2}
+\end{equation*}
+
+Reemplazando $\sub{I}{ref}$ en la definición \ref{defn:I} se tiene que la mínima potencia que puede percibir el humano, para una superficie de radiación $S=1\,\si{\metre^2}$, es:
+\begin{equation*}
+    \sub{W}{ref} = 10^{-12}\,\si{\watt}
+\end{equation*}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:SPL}
+    \end{defn}
+    \cusTi{Nivel de presión sonora}
+    \begin{equation*}
+        L_p = SPL = 20 \log \left( \frac{\rms{p}}{\sub{p}{ref}} \right) \si{\deci\bel}
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:SIL}
+    \end{defn}
+    \cusTi{Nivel de intensidad sonora}
+    \begin{equation*}
+        L_I = SIL = 10 \log \left( \frac{I}{\sub{I}{ref}} \right)\si{\deci\bel}
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:PWL}
+    \end{defn}
+    \cusTi{Nivel de potencia acústica}
+    \begin{equation*}
+        L_W = PWL = 10 \log \left( \frac{W}{\sub{W}{ref}} \right)\si{\deci\bel}
+    \end{equation*}
+\end{mdframed}
+
+Para ondas planas en campo libre se puede usar la propiedad \ref{prop:p^2/Z=W/S} en la definición \ref{defn:SIL}, quedando:
+\begin{equation*}
+    SIL = 10 \log \left( \frac{\rms{p}^2}{\rho_0 \, c \, \sub{I}{ref}} \right) \si{\deci\bel}
+\end{equation*}
+
+Se multiplica el argumento del logaritmo por $\tfrac{\sub{p}{ref}^2}{\sub{p}{ref}^2}$ sin alterar la igualdad, y luego se reagrupa usando propiedades logarítmicas:
+\begin{align*}
+    SIL &= 10 \log \left( \frac{\rms{p}^2}{\sub{p}{ref}^2} \frac{\sub{p}{ref}^2}{\rho_0 \, c \, \sub{I}{ref}} \right) \si{\deci\bel}
+    \\
+    &= 20 \log \left( \frac{\rms{p}}{\sub{p}{ref}} \right) \si{\deci\bel} + 10 \log \left( \frac{\sub{p}{ref}^2}{\rho_0 \, c \, \sub{I}{ref}} \right) \si{\deci\bel}
+\end{align*}
+
+Verificándose la siguiente propiedad.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    Para ondas planas y en campo libre:
+    \begin{equation*}
+        SIL = SPL + 10 \log \left( \frac{\sub{p}{ref}^2}{\rho_0 \, c \, \sub{I}{ref}} \right) \si{\deci\bel}
+    \end{equation*}
+\end{mdframed}
+
+En la que el segundo término tiende a anularse si los valores de $\sub{I}{ref}$, $\sub{p}{ref}$, $\rho_0$ y $c$ están dados para condiciones normales de presión y temperatura, quedando:
+\begin{equation*}
+    SIL \approx SPL
+\end{equation*}
+
+Despejando $\rms{p}^2$ de la propiedad \ref{prop:p^2/Z=W/S}, y reemplazando luego este valor en la definición de nivel de presión sonora (Def. \ref{defn:SPL}) se tiene:
+\begin{align*}
+    L_p &= 10 \log \left( \frac{W \, \rho_0 \, c \, Q}{S \, \sub{p}{ref}^2} \right) \si{\deci\bel}
+    \\
+    &= \left[ 10\log \left( \frac{\rho_0 \, c}{\sub{p}{ref}^2} \right) + 10\log(W) + 10\log \left( \frac{Q}{S} \right) \right] \si{\deci\bel}
+    \\
+    &= 120 \si{\deci\bel} + 10 \log(W)\,\si{\deci\bel} + 10 \log \left( \frac{Q}{S} \right) \si{\deci\bel}
+\end{align*}
+
+Aplicando la definición de nivel de potencia (Def. \ref{defn:PWL}) al sumando $120\,\si{\deci\bel}$ se tiene:
+\begin{align*}
+    L_p &= \left[ 10 \log \left( \frac{1}{10^{-12}} \right) + 10 \log(W) + 10 \log \left( \frac{Q}{S} \right) \right] \si{\deci\bel}
+    \\
+    &= 10 \log \left( \frac{W}{10^{-12}} \right) + 10 \log \left( \frac{Q}{S} \right) \si{\deci\bel}
+\end{align*}
+
+Obteniendo la siguiente propiedad.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    Para ondas planas y en campo libre:
+    \begin{equation*}
+        L_p = L_W + 10 \log \left( \frac{Q}{S} \right) \si{\deci\bel}
+    \end{equation*}
+\end{mdframed}
+
+De manera que si la superficie es unitaria $S=1\,\si{\metre^2}$ se tiene que:
+\begin{equation*}
+    PWL \approx SPL \approx SIL
+\end{equation*}
