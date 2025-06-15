@@ -56,7 +56,7 @@ La versión digital más reciente de este texto puede ser descargada gratuitamen
 
 \chapter{Vibraciones}
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
     \end{defn}
     \cusTi{Vibración}
@@ -90,7 +90,7 @@ Los resortes en el sistema de la izquierda están dispuestos en paralelo y los d
 
 Se supone como hipótesis que el peso de la masa está perfectamente equilibrado y que esta solo tiene un grado de libertad para desplazarse.
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
     \end{defn}
     \cusTi{Constante de rigidez equivalente}
@@ -389,7 +389,7 @@ El modelo usa un resorte ideal y un amortiguador ideal ya que, por más que no s
 Para estudiar el efecto de amortiguación que tenga el sistema se pretende analizar cómo la fuerza, aplicada sobre uno de los bloques, influye en el movimiento del otro bloque.
 Para esto se estudia la relación entre el desplazamiento $x(t)$ e $y(t)$ de los bloques conocida como \emph{transmisibilidad}.
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
     \end{defn}
     \cusTi{Transmisibilidad}
@@ -401,7 +401,7 @@ Para esto se estudia la relación entre el desplazamiento $x(t)$ e $y(t)$ de los
 
 Se define, además, el nivel de transmisibilidad en escala logarítmica como sigue.
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
     \end{defn}
     \cusTi{Nivel de transmisibilidad}
@@ -486,7 +486,7 @@ Reemplazando las soluciones y sus derivadas en la ecuación \ref{eqn:MAAF} se ti
     &= \frac{\omega_0^2}{\omega_0^2} \cdot \frac{1+ \iu \, 2 \xi \frac{\omega}{\omega_0}}{1-\frac{\omega^2}{\omega_0^2} + \iu \, 2 \, \xi \frac{\omega}{\omega_0}}
 \end{align*}
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
     \end{defn}
     \cusTi{Relación de frecuencias}
@@ -509,7 +509,7 @@ Tomando módulo en ambos miembros se tiene:
     &= \frac{\sqrt{1 + (2 \, \xi \, r)^2}}{\sqrt{(1-r^2)^2 + (2 \, \xi \, r)^2}}
 \end{align*}
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=PropertyFrame]
     \begin{prop}
     \end{prop}
     \begin{equation*}
@@ -545,7 +545,7 @@ Existe una relación entre $\sub{F}{ext}$ y el desplazamiento $\norm{X}$ que la 
     -\frac{F_0 \cos (\omega t)}{\omega^2} &= m \, \norm{X} \cos (\omega t)
 \end{align*}
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=PropertyFrame]
     \begin{prop}
     \end{prop}
     \begin{equation*}
@@ -555,7 +555,7 @@ Existe una relación entre $\sub{F}{ext}$ y el desplazamiento $\norm{X}$ que la 
 
 Analizando la fuerza transmitida $\sub{F}{tra}=F_1 \cos(\omega t)$ y el desplazamiento $\norm{Y}$ en el otro extremo, se obtiene $F_1 = m \, \norm{Y} \, \omega^2$ para el máximo de fuerza transmitida de modo que:
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=PropertyFrame]
     \begin{prop}
     \end{prop}
     \begin{equation*}
@@ -566,7 +566,7 @@ Analizando la fuerza transmitida $\sub{F}{tra}=F_1 \cos(\omega t)$ y el desplaza
 
 \chapter{El fenómeno sonoro}
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
         \label{defn:sound}
     \end{defn}
@@ -663,7 +663,7 @@ Se define la presión acústica $p=p_1-p_0$ como la diferencia entre la presión
 Análogamente se define $\rho=\rho_1-\rho_0$ para la densidad.
 Quedando finalmente:
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=PropertyFrame]
     \begin{prop}
         \label{prop:linearAcoustics}
     \end{prop}
@@ -876,7 +876,7 @@ Y reemplazando la tercer ecuación en la segunda se infiere la ecuación de onda
     \right.
 \end{equation*}
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
         \label{defn:soundWave1D}
     \end{defn}
@@ -949,7 +949,7 @@ En el sistema anterior se considera una tercera ecuación, dada por la propiedad
 
 Siguiendo un procedimiento similar al caso unidimensional, se obtiene la ecuación de onda en tres dimensiones al despejar el sistema.
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
         \label{defn:soundWave3D}
     \end{defn}
@@ -961,7 +961,7 @@ Siguiendo un procedimiento similar al caso unidimensional, se obtiene la ecuaci�
 
 A partir del laplaciano de presión para coordenadas esféricas surge la ecuación de onda tridimensional dada en función de la distancia $r$ a la fuente.
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
         \label{defn:soundWaveSpherical}
     \end{defn}
@@ -979,7 +979,7 @@ Las soluciones son, por lo tanto, campos escalares de presión $p:\setR^n\to\set
 La solución general a la ecuación de onda en una dimensión está dada por la suma de dos funciones cualesquiera cuyo argumento sea $t-\tfrac{x}{c}$ y $t+\tfrac{x}{c}$ respectivamente.
 La función de argumento $t-\tfrac{x}{c}$ determina la propagación de la onda en el sentido positivo y la función de argumento $t+\tfrac{x}{c}$ lo hace en el sentido negativo.
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
     \end{defn}
     \cusTi{Solución general en 1D}
@@ -990,7 +990,7 @@ La función de argumento $t-\tfrac{x}{c}$ determina la propagación de la onda e
 
 Particularmente podemos representar ondas periódicas restringiendo la solución general funciones armónicas de la siguiente manera.
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
         \label{defn:waveFunction1D}
     \end{defn}
@@ -1003,7 +1003,7 @@ Particularmente podemos representar ondas periódicas restringiendo la solución
 Una onda en tres dimensiones cuyo frente de onda se propague de forma esférica (Def. \ref{defn:soundWaveSpherical}) puede ser representada por una única variable espacial.
 Las ondas esféricas solo dependen de la distancia $r$ a la fuente, ya que no hay variación de presión en las direcciones angulares.
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
         \label{defn:sphericalWaveFunction}
     \end{defn}
@@ -1015,7 +1015,7 @@ Las ondas esféricas solo dependen de la distancia $r$ a la fuente, ya que no ha
 
 \section{Ecuación de Helmholtz}
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
     \end{defn}
     \cusTi{Coeficiente de reflexión}
@@ -1067,7 +1067,7 @@ Se obtiene:
 
 Y al dividir $p(t)$ se infiere:
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
         \label{defn:Helmholtz1D}
     \end{defn}
@@ -1082,7 +1082,7 @@ Cuya solución está dada por la ecuación \ref{eqn:Helmholtz} definida anterior
 
 Se puede demostrar que la equivalente a la ecuación de Helmholtz en una dimensión está dada para las tres dimensiones cartesianas por:
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
         \label{defn:Helmholtz3D}
     \end{defn}
@@ -1094,7 +1094,7 @@ Se puede demostrar que la equivalente a la ecuación de Helmholtz en una dimensi
 
 Y a su vez en coordenadas esféricas a partir del laplaciano de presión.
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
         \label{defn:HelmholtzSpheric}
     \end{defn}
@@ -1137,7 +1137,7 @@ Y al igualar ambas derivadas se tiene:
 
 Obteniendo para $\omega=c\,k$ la siguiente expresión para la velocidad de las partículas en función de $x$:
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
         \label{defn:particlesVelocity}
     \end{defn}
@@ -1193,7 +1193,7 @@ Según la definición \ref{defn:sound}, estudiar el sonido implica modelar matem
 
 La relación entre la presión $p(t)$ y la velocidad particular $v(t)$ es conocida como impedancia acústica.
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
         \label{defn:impedance}
     \end{defn}
@@ -1228,7 +1228,7 @@ Y $v(x)$ es la velocidad particular (Def. \ref{defn:particlesVelocity}):
 
 Obteniendo:
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=PropertyFrame]
     \begin{prop}
     \end{prop}
     \cusTi{Impedancia acústica en 1D}
@@ -1293,7 +1293,7 @@ Pudiendo separar la parte real de la imaginaria:
 
 O bien, multiplicando y dividiendo por $(k\,r)^2$ queda:
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=PropertyFrame]
     \begin{prop}
     \end{prop}
     \cusTi{Impedancia acústica en 3D}
@@ -1318,7 +1318,7 @@ Observar que $|Z|$ tiende a ser $\rho_0 \, c$ para valores de $k \, r$ altos.
     \norm{Z(r)} = \frac{\rho_0 \, c}{\norm{1+\iu \, \dfrac{-1}{k \, r}}}
 \end{equation*}
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=PropertyFrame]
     \begin{prop}
     \end{prop}
     \cusTi{Módulo de la impedancia en 3D}
@@ -1362,7 +1362,7 @@ La potencia es la cantidad de energía por unidad de tiempo.
 En el caso de una fuente sonora, refiere a la energía radiada en forma de ondas sonoras.
 Se define como sigue:
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
     \end{defn}
     \cusTi{Potencia acústica}
@@ -1377,7 +1377,7 @@ La integral que queda, es el área de la porción de superficie.
 
 En tal caso, la intensidad acústica se puede definir en función de la potencia de la fuente y la superficie de radiación:
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
         \label{defn:I}
     \end{defn}
@@ -1455,7 +1455,7 @@ Reemplazando la ecuación \ref{eqn:energyDensityPv} en la ecuación \ref{eqn:ene
 
 % ¿Cómo pasa de ser un escalar a ser vector?
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
     \end{defn}
     \cusTi{Vector intensidad}
@@ -1507,7 +1507,7 @@ Y usando nuevamente $z+\overline{z}=2\,\Re(z)$ se tiene:
 
 Obteniendo así la siguiente definición para la intensidad que puede ser extrapolada a notación vectorial para la velocidad.
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=PropertyFrame]
     \begin{prop}
         \label{prop:aveI}
     \end{prop}
@@ -1527,7 +1527,7 @@ En la figura a continuación sea muestran los valores que tomaría $Q$ para una 
     \input{./images/q.pdf_tex}
 \end{center}
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
     \end{defn}
     \cusTi{Índice de directividad}
@@ -1541,7 +1541,7 @@ En la figura a continuación sea muestran los valores que tomaría $Q$ para una 
 
 Una fuente pulsante monopolar impone una velocidad de partículas en dirección radial, generando un frente de onda esférico.
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
         \label{defn:Q_v}
     \end{defn}
@@ -1620,7 +1620,7 @@ Tomando la parte real del producto anterior se obtiene, a partir de la propiedad
 
 La intensidad fue definida como la potencia por unidad de superficie (Def. \ref{defn:I}) luego $W=I\,S=I\,4\pi r^2$ pudiendo definir la potencia acústica al reemplazar la intensidad según:
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=PropertyFrame]
     \begin{prop}
     \end{prop}
     \cusTi{Potencia de fuente esférica puntual}
@@ -1644,7 +1644,7 @@ Es necesario agregar como hipótesis que $k\,r>>1$ para considerar que la radiac
 Así, en la ecuación anterior, la impedancia está dada por $Z=\rho_0 \, c$ en efecto.
 Luego:
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=PropertyFrame]
     \begin{prop}
         \label{prop:p^2/Z=W/S}
     \end{prop}
@@ -1673,7 +1673,7 @@ Haciendo algunos despejes en la propiedad \ref{prop:p^2/Z=W/S} se puede hallar u
 
 Lo cual implica:
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=PropertyFrame]
     \begin{prop}
     \end{prop}
     La presión multiplicada por la distancia es constante.
@@ -1715,7 +1715,7 @@ Luego si la distancia $r_2$ es el doble de $r_1$ queda:
 Para estudiar las variaciones de presión, intensidad y potencia, se definen niveles en escalas logarítmicas.
 Los respectivos niveles relacionan dichas magnitudes con un valor de referencia, indicando qué tan por encima están del umbral de audición.
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
     \end{defn}
     \cusTi{Presión de referencia}
@@ -1735,7 +1735,7 @@ Reemplazando $\sub{I}{ref}$ en la definición \ref{defn:I} se tiene que la míni
     \sub{W}{ref} = 10^{-12}\,\si{\watt}
 \end{equation*}
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
         \label{defn:SPL}
     \end{defn}
@@ -1745,7 +1745,7 @@ Reemplazando $\sub{I}{ref}$ en la definición \ref{defn:I} se tiene que la míni
     \end{equation*}
 \end{mdframed}
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
         \label{defn:SIL}
     \end{defn}
@@ -1755,7 +1755,7 @@ Reemplazando $\sub{I}{ref}$ en la definición \ref{defn:I} se tiene que la míni
     \end{equation*}
 \end{mdframed}
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
         \label{defn:PWL}
     \end{defn}
@@ -1779,7 +1779,7 @@ Se multiplica el argumento del logaritmo por $\tfrac{\sub{p}{ref}^2}{\sub{p}{ref
 
 Verificándose la siguiente propiedad.
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=PropertyFrame]
     \begin{prop}
     \end{prop}
     Para ondas planas y en campo libre:
@@ -1811,7 +1811,7 @@ Aplicando la definición de nivel de potencia (Def. \ref{defn:PWL}) al sumando $
 
 Obteniendo la siguiente propiedad.
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=PropertyFrame]
     \begin{prop}
     \end{prop}
     Para ondas planas y en campo libre:
@@ -2005,7 +2005,7 @@ Con armónicos impares de longitud de onda:
 
 Se define la frecuencia de Schroeder que determina empíricamente a partir de qué frecuencia el análisis modal de un recinto no puede aplicarse para determinar la deformada modal.
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
     \end{defn}
     \cusTi{Frecuencia de Schroeder}
@@ -2098,7 +2098,7 @@ Reemplazando $k_x$, y luego con el mismo razonamiento $k_y$ y $k_z$, en la ecuac
     = \left( \frac{n_x \, \pi}{L_x} \right)^2 + \left( \frac{n_y \, \pi}{L_y} \right)^2 + \left( \frac{n_z \, \pi}{L_z} \right)^2
 \end{gather*}
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
     \end{defn}
     \cusTi{Frecuencias modales}
@@ -2171,7 +2171,7 @@ Sumar presiones implica sumar las respectivas funciones que describan cómo var�
 
 Podría tratarse de señales desfasadas:
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
     \end{defn}
     \cusTi{Fase}
@@ -2183,7 +2183,7 @@ Podría tratarse de señales desfasadas:
 Debido a este comportamiento periódico, pueden darse sumas de presiones que culminen en cancelaciones o amplificaciones.
 Se definen dos tipos de señales.
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
     \end{defn}
     \cusTi{Señales correlacionadas}
@@ -2193,7 +2193,7 @@ Se definen dos tipos de señales.
     \end{equation*}
 \end{mdframed}
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
     \end{defn}
     \cusTi{Señales coherentes}
@@ -2322,7 +2322,7 @@ El nivel de presión total en decibeles queda dado según la definición \ref{de
 
 % ¿Cómo es que cada presión |p_n| pico pasa a ser eficaz en la definición?
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
     \end{defn}
     \cusTi{Nivel de presión global}
@@ -2340,7 +2340,7 @@ Según la definición \ref{defn:SPL}, cada presión individual es:
 
 Pudiendo reemplazar la sumatoria anterior, obteniendo la siguiente definición equivalente.
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
     \end{defn}
     \cusTi{Nivel de presión global}
@@ -2351,7 +2351,7 @@ Pudiendo reemplazar la sumatoria anterior, obteniendo la siguiente definición e
 
 Por otro lado, el promedio energético se puede calcular a partir de niveles de presión discretos de la siguiente manera.
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
     \end{defn}
     \cusTi{Nivel de presión promedio}
@@ -2425,7 +2425,7 @@ Por lo tanto, si la fuente se aleja del receptor, este escucharía un sonido má
 Esto significa que si la velocidad de la fuente es muy baja comparado con la velocidad de propagación del sonido, la variación en la frecuencia relativa podría ser despreciable.
 Por otro lado, si la fuente viaja a la velocidad del sonido se genera un frente de onda que por un instante impacta al receptor y luego este percibe la fuente alejándose con una frecuencia relativa más grave.
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
     \end{defn}
     \cusTi{Número de Match}
@@ -2465,7 +2465,7 @@ La energía incidente será igual a la reflejada, más la absorbida, más la tra
 De esta forma, podemos definir coeficientes de reflexión, absorción y transmisión.
 Estos serán inherentes a las cualidades constructivas del obstáculo.
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
         \label{defn:coefficients}
     \end{defn}
@@ -2529,7 +2529,7 @@ Que pueden ser visualizados en el siguiente gráfico que determina el nivel de p
 
 Donde $d_c$ es la distancia crítica y $\mathcal{R}$ la constante de sala, que a su vez depende del coeficiente de absorción promedio $\overline{\alpha}$ definidos a continuación.
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
     \end{defn}
     \cusTi{Distancia crítica}
@@ -2543,7 +2543,7 @@ La distancia crítica determina qué tan lejos de la fuente hay que estar para q
 
 Esto equivale a considerar $p_T^2=0$ en la ecuación \ref{eqn:criticalDist}, pudiendo despejar $S=4\pi d_c^2$ para inferir la definición anterior.
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
     \end{defn}
     \cusTi{Constante de sala}
@@ -2552,7 +2552,7 @@ Esto equivale a considerar $p_T^2=0$ en la ecuación \ref{eqn:criticalDist}, pud
     \end{equation*}
 \end{mdframed}
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
     \end{defn}
     \cusTi{Coeficiente de absorción promedio}
@@ -2655,7 +2655,7 @@ Podemos multiplicar la parte derecha por $\sub{W}{ref}/\sub{W}{ref}$ y y dividir
 
 Siendo $10 \log \left( \frac{Z \, \sub{W}{ref}}{\sub{p}{ref}^2} \right)= 0.1\,\si{\deci\bel}$ despreciable, de manera que es válida la aproximación:
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=PropertyFrame]
     \begin{prop}
         \label{prop:directDiffuseFields}
     \end{prop}
@@ -2719,7 +2719,7 @@ Se puede calcular la presión eficaz de $p(r,t)$ en la ecuación anterior usando
 
 Obteniendo así:
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=PropertyFrame]
     \begin{prop}
     \end{prop}
     \cusTi{Suma correlacionada}
@@ -2749,7 +2749,7 @@ O bien, considerando que la superficie reflectante tiene un coeficiente de absor
 
 Se define el tiempo de reverberación como el tiempo necesario para que el nivel de intensidad acústica de un sonido disminuya $60\,\si{\deci\bel}$ con respecto al valor inicial.
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
     \end{defn}
     \cusTi{Tiempo de reverberación}
@@ -2836,7 +2836,7 @@ Se clasifican en reactivos y disipativos según su principio de funcionamiento s
 
 El \emph{Noise Reduction} consiste en medir la presión en la entrada del silenciador para compararla con la presión en la salida.
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
     \end{defn}
     \cusTi{Noise Reduction}
@@ -2855,7 +2855,7 @@ Pero esta aproximación rara vez es válida, y es probable que los puntos de med
 
 El \emph{Insertion Loss} sirve para medir la presión transmitida por un silenciador y compararla con la presión que se tenía antes de instalar el silenciador.
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
     \end{defn}
     \cusTi{Insertion Loss}
@@ -2875,7 +2875,7 @@ Pero no permite sacar conclusiones generales sobre el comportamiento del silenci
 
 La pérdida de transmisibilidad o \emph{Transmission Loss} relacionan la potencia acústica incidente al sistema con la transmitida.
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
         \label{defn:TL}
     \end{defn}
@@ -2947,7 +2947,7 @@ Pudiendo definir la relación entre las presiones máxima y mínima:
     \frac{\sub{\rms{p}^2}{max}}{\sub{\rms{p}^2}{min}} = \frac{\left( 1 + R \right)^2}{\left( 1 - R \right)^2} = s
 \end{equation*}
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=DefinitionFrame]
     \begin{defn}
     \end{defn}
     \cusTi{Coeficiente de onda estacionaria}
@@ -3085,7 +3085,7 @@ Reemplazando la ecuación \ref{eqn:mediumPin/PT} en el coeficiente de transmisi�
     &= \norm{1 + \iu \, \frac{\pi \, f \, L \, \rho_2}{\rho_0 \, c}}^2
 \end{align*}
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=PropertyFrame]
     \begin{prop}
     \end{prop}
     \cusTi{Ley de masa}
@@ -3098,7 +3098,7 @@ Reemplazando la ecuación \ref{eqn:mediumPin/PT} en el coeficiente de transmisi�
 La pérdida de transmisibilidad (Def. \ref{defn:TL}) se definió en función del inverso del coeficiente de transmisión (Def. \ref{defn:coefficients}).
 Por lo tanto, a partir de la ley de masa se tiene la siguiente expresión equivalente para el Transmission Loss de la pared.
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=PropertyFrame]
     \begin{prop}
     \end{prop}
     \cusTi{Transmission Loss}
@@ -3140,7 +3140,7 @@ Luego, aplicando la definición \ref{defn:TL}, el TL queda:
     &= \left[ \sub{L_p}{in} + 10 \log \left( \frac{S}{4} \right) \right] - \left[ {L_p}_T - 10 \log \left( \frac{4}{\mathcal{R}} \right) \right]
 \end{align*}
 
-\begin{mdframed}[style=MyFrame1]
+\begin{mdframed}[style=PropertyFrame]
     \begin{prop}
     \end{prop}
     \cusTi{Transmision Loss}
